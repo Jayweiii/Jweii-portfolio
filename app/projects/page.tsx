@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getCategories, getProjects } from "@/lib/content";
+import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Engineering projects by Jason Wei, from Formula SAE battery packs to shop builds and research.",
+  description: "Formula SAE battery work, a track-day lap app, shop projects, and research notes.",
   alternates: { canonical: "/projects/" },
   openGraph: {
     title: "Projects · Jason Wei",
-    description: "Engineering projects by Jason Wei, from Formula SAE battery packs to shop builds and research.",
+    description: "Formula SAE battery work, a track-day lap app, shop projects, and research notes.",
     url: "/projects/",
+    images: [{ url: profile.portrait.src, alt: profile.portrait.alt }],
   },
 };
 
@@ -20,10 +22,10 @@ export default function ProjectsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Showcasing my</p>
+      <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Things I’ve made</p>
       <h1 className="mt-2 font-display text-5xl tracking-tight sm:text-6xl">Projects</h1>
       <p className="mt-4 max-w-2xl text-muted">
-        Formula SAE battery work, shop projects, and research notes. Each page keeps the original write-up.
+        Formula SAE battery work, a track-day lap app, shop projects, and research notes. Older pages keep the original write-ups.
       </p>
       {categories.length > 0 ? (
         <nav aria-label="Project categories" className="mt-8 flex flex-wrap gap-2">

@@ -9,7 +9,8 @@ Static rebuild of [jweii.com](https://jweii.com). Next.js (App Router) exports a
 Open [`content/profile.json`](content/profile.json).
 
 - `headline`, `role`, `team`, `company`, and `location` are the hero and the top of About.
-- `summary` is the short intro. `bio` is the longer About copy.
+- `summary` is the short intro. `bio` is the longer About copy. `tagline` is the footer line.
+- `portrait` is the headshot used in the hero, About page, and social preview. The file lives at `public/images/jason-wei.jpg`.
 - `experience`, `education`, `skills`, and `honors` are lists. Add an object, or add a string to a `bullets` or `items` array. Leave `end` as `""` when you only know the start date. Leave `bullets` as `[]` when you don’t have them yet — the page hides an empty list.
 - `email`, `links.linkedin`, and `links.github` are the only contact methods. The old footer phone number is intentionally not on the site.
 - `resume` points at the PDF in `public/resume/`. The file in the repo is the November 19, 2024 résumé from the old site. Drop a newer PDF in `public/resume/` and update `href` and `date`.
@@ -40,7 +41,9 @@ Write the project here.
 ```
 
 - `date` is `YYYY-MM-DD`. Use `YYYY-MM` if you only know the month.
-- `featured: true` plus `featureRank` (1, 2, 3…) puts it on the homepage. Lower rank comes first.
+- `featured: true` plus `featureRank` (0, 1, 2…) puts it on the homepage. Lower rank comes first.
+- `pinned: true` keeps a project at the top of the full list even when `date` is empty. Leave `date` off if you don’t have one.
+- `link` and `linkLabel` add a button to a live site. Don’t point `link` at a private repo.
 - `categories` and `tags` also create `/category/…` and `/tag/…` pages. Reuse an existing `slug` so the project shows up on that archive.
 - Put images and video in `public/media/` and link them from the root, like `/media/files/name.webp`.
 - A line that is only “To be updated” is the original WordPress text. Replace it when you have the write-up.

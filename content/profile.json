@@ -1,17 +1,23 @@
 {
   "name": "Jason Wei",
-  "headline": "Battery Engineering at Tesla. Based in Palo Alto, California.",
+  "headline": "Battery Engineering at Tesla, in Palo Alto.",
   "role": "Mechanical Design Engineer",
   "team": "Battery Engineering",
   "company": "Tesla",
   "location": "Palo Alto, California",
-  "summary": "MechE from UCSB with extensive hands-on experience in EV powertrains, high volume designing for manufacturing, and thermal systems modeling. I am dedicated to bringing people closer together through safe, affordable, and sustainable transportation.",
+  "summary": "Mechanical Design Engineer in Battery Engineering at Tesla, in Palo Alto. I studied mechanical engineering at UCSB, was on Gaucho Racing’s FSAE Electric team, and still like cars, Miatas, track driving, and building web apps.",
   "bio": [
-    "I studied mechanical engineering at UCSB and I have always been obsessed with cars. As soon as I learned how to read, I would spend hours flipping through picture books about supercars, memorizing license plates I read on the road, and quizzing my grandma on every model of car that passed by. Since experiencing the challenges facing the current automobile industry including the climate impact, safety during accidents, and affordability, I have committed to revolutionizing the cars of the future.",
-    "At UCSB, I led the Gaucho Racing club as the Chief Electrical Engineer in designing, manufacturing, and racing an electric race car in the Formula SAE competition. Through this experience, I developed engineering, leadership, and communication skills through competitions, car shows, and research presentations.",
-    "Through my internships at Tesla and Seek Thermal, and my current role in Battery Engineering at Tesla, I have gained valuable experience in designing for manufacturing, GD&T, and specific design considerations."
+    "I’ve been into cars for about as long as I could read. Supercar picture books, license plates on the road, quizzing my grandma on whatever drove by. I studied mechanical engineering at UCSB.",
+    "At school I was on Gaucho Racing, the Formula SAE Electric team, as Chief Electrical Engineer. We designed, built, and raced an electric car.",
+    "These days I’m a Mechanical Design Engineer in Battery Engineering at Tesla in Palo Alto. Off the clock it’s still cars — Miatas especially — plus track driving and building web apps."
   ],
-  "tagline": "Creativity is all about connecting dots.",
+  "tagline": "Cars, Miatas, track days, and web apps.",
+  "portrait": {
+    "src": "/images/jason-wei.jpg",
+    "alt": "Jason Wei",
+    "width": 800,
+    "height": 800
+  },
   "email": "jwei@ucsb.edu",
   "links": {
     "linkedin": "https://linkedin.com/in/jwei",
