@@ -34,7 +34,10 @@ function readProject(filePath: string): Project {
     source: typeof data.source === "string" ? data.source : undefined,
     featured: Boolean(data.featured),
     featureRank: typeof data.featureRank === "number" ? data.featureRank : 0,
+    pinned: Boolean(data.pinned),
     cover: typeof data.cover === "string" ? data.cover : undefined,
+    link: typeof data.link === "string" ? data.link : undefined,
+    linkLabel: typeof data.linkLabel === "string" ? data.linkLabel : undefined,
     categories: asTerms(data.categories),
     tags: asTerms(data.tags),
     aliases: asStrings(data.aliases),
@@ -62,6 +65,7 @@ export function getFeaturedProjects(): Project[] {
 }
 
 export function compareProjects(a: Project, b: Project): number {
+  if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
   const date = sortKey(b.date).localeCompare(sortKey(a.date));
   if (date !== 0) return date;
   return a.title.localeCompare(b.title);

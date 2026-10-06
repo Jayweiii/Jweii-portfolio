@@ -11,7 +11,10 @@ export type Project = {
   source?: string;
   featured: boolean;
   featureRank: number;
+  pinned: boolean;
   cover?: string;
+  link?: string;
+  linkLabel?: string;
   categories: Term[];
   tags: Term[];
   aliases: string[];
@@ -61,6 +64,12 @@ export type Profile = {
   summary: string;
   bio: string[];
   tagline: string;
+  portrait: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
   email: string;
   links: {
     linkedin: string;

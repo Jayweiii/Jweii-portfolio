@@ -36,10 +36,10 @@ export default function HomePage() {
             </div>
           </div>
           <img
-            src="/media/portrait.webp"
-            alt="Portrait of Jason Wei"
-            width={652}
-            height={652}
+            src={profile.portrait.src}
+            alt={profile.portrait.alt}
+            width={profile.portrait.width}
+            height={profile.portrait.height}
             fetchPriority="high"
             className="aspect-square w-36 object-cover sm:w-52 md:w-full md:max-w-xs md:justify-self-end"
           />

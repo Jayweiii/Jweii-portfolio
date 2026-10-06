@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: "About · Jason Wei",
     description: profile.summary,
     url: "/about-me/",
+    images: [{ url: profile.portrait.src, alt: profile.portrait.alt }],
   },
 };
 
@@ -41,10 +42,10 @@ export default function AboutPage() {
           </div>
         </div>
         <img
-          src="/media/portrait.webp"
-          alt="Portrait of Jason Wei"
-          width={652}
-          height={652}
+          src={profile.portrait.src}
+          alt={profile.portrait.alt}
+          width={profile.portrait.width}
+          height={profile.portrait.height}
           className="aspect-square w-full max-w-xs object-cover"
         />
       </div>

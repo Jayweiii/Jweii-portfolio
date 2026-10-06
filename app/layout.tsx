@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     siteName: "Jason Wei",
     title,
     description: profile.summary,
-    images: [{ url: "/media/portrait.webp", alt: "Portrait of Jason Wei" }],
+    images: [{ url: profile.portrait.src, alt: profile.portrait.alt, width: profile.portrait.width, height: profile.portrait.height }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description: profile.summary,
-    images: ["/media/portrait.webp"],
+    images: [profile.portrait.src],
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     jobTitle: `${profile.role}, ${profile.team}`,
     worksFor: { "@type": "Organization", name: profile.company },
     url: "https://jweii.com/",
-    image: "https://jweii.com/media/portrait.webp",
+    image: `https://jweii.com${profile.portrait.src}`,
     homeLocation: {
       "@type": "Place",
       address: {

@@ -9,6 +9,7 @@ import {
   visibleCategories,
 } from "@/lib/content";
 import { renderMarkdown } from "@/lib/markdown";
+import { profile } from "@/lib/profile";
 
 export const dynamicParams = false;
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProject(slug);
   if (!project) return {};
   const description = project.excerpt || project.title;
-  const images = project.cover ? [project.cover] : ["/media/portrait.webp"];
+  const images = project.cover ? [project.cover] : [profile.portrait.src];
   return {
     title: project.title,
     description,
@@ -69,6 +70,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </Link>
         ))}
       </div>
+      {project.link ? (
+        <p className="mt-6">
+          <a
+            href={project.link}
+            className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+          >
+            {project.linkLabel ?? "Open site"}
+          </a>
+        </p>
+      ) : null}
       <div className="prose mt-10" dangerouslySetInnerHTML={{ __html: html }} />
       <nav aria-label="More projects" className="mt-14 grid gap-4 border-t border-line pt-6 sm:grid-cols-2">
         {next ? (
