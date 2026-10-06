@@ -5,13 +5,13 @@
   "team": "Battery Engineering",
   "company": "Tesla",
   "location": "Palo Alto, California",
-  "summary": "Mechanical Design Engineer in Battery Engineering at Tesla, in Palo Alto. I studied mechanical engineering at UCSB, was on Gaucho Racing’s FSAE Electric team, and still like cars, Miatas, track driving, and building web apps.",
+  "summary": "Mechanical Design Engineer in Battery Engineering at Tesla, in Palo Alto. I studied mechanical engineering at UCSB, was on Gaucho Racing’s FSAE Electric team, and still like cars and Miatas.",
   "bio": [
     "I’ve been into cars for about as long as I could read. Supercar picture books, license plates on the road, quizzing my grandma on whatever drove by. I studied mechanical engineering at UCSB.",
     "At school I was on Gaucho Racing, the Formula SAE Electric team, as Chief Electrical Engineer. We designed, built, and raced an electric car.",
-    "These days I’m a Mechanical Design Engineer in Battery Engineering at Tesla in Palo Alto. Off the clock it’s still cars — Miatas especially — plus track driving and building web apps."
+    "These days I’m a Mechanical Design Engineer in Battery Engineering at Tesla in Palo Alto. Off the clock it’s still cars — Miatas especially."
   ],
-  "tagline": "Cars, Miatas, track days, and web apps.",
+  "tagline": "Cars and Miatas.",
   "portrait": {
     "src": "/images/jason-wei.jpg",
     "alt": "Jason Wei",
