@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    {
+      "source": "/page/:page(\\d+)",
+      "destination": "/projects/",
+      "permanent": true
+    },
+    {
+      "source": "/page/:page(\\d+)/",
+      "destination": "/projects/",
+      "permanent": true
+    },
+    {
+      "source": "/fsae-electric-liquid-cooling-design",
+      "destination": "/fsae-gr24-battery-cooling-cold-plate-leak-test/",
+      "permanent": true
+    },
+    {
+      "source": "/fsae-electric-liquid-cooling-design/",
+      "destination": "/fsae-gr24-battery-cooling-cold-plate-leak-test/",
+      "permanent": true
+    },
+    {
+      "source": "/fsae-battery-pack-design",
+      "destination": "/fsae-gr23-battery-segment-design/",
+      "permanent": true
+    },
+    {
+      "source": "/fsae-battery-pack-design/",
+      "destination": "/fsae-gr23-battery-segment-design/",
+      "permanent": true
+    }
+  ]
+}

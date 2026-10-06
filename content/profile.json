@@ -1,0 +1,177 @@
+{
+  "name": "Jason Wei",
+  "headline": "Battery Engineering at Tesla. Based in Palo Alto, California.",
+  "role": "Mechanical Design Engineer",
+  "team": "Battery Engineering",
+  "company": "Tesla",
+  "location": "Palo Alto, California",
+  "summary": "MechE from UCSB with extensive hands-on experience in EV powertrains, high volume designing for manufacturing, and thermal systems modeling. I am dedicated to bringing people closer together through safe, affordable, and sustainable transportation.",
+  "bio": [
+    "I studied mechanical engineering at UCSB and I have always been obsessed with cars. As soon as I learned how to read, I would spend hours flipping through picture books about supercars, memorizing license plates I read on the road, and quizzing my grandma on every model of car that passed by. Since experiencing the challenges facing the current automobile industry including the climate impact, safety during accidents, and affordability, I have committed to revolutionizing the cars of the future.",
+    "At UCSB, I led the Gaucho Racing club as the Chief Electrical Engineer in designing, manufacturing, and racing an electric race car in the Formula SAE competition. Through this experience, I developed engineering, leadership, and communication skills through competitions, car shows, and research presentations.",
+    "Through my internships at Tesla and Seek Thermal, and my current role in Battery Engineering at Tesla, I have gained valuable experience in designing for manufacturing, GD&T, and specific design considerations."
+  ],
+  "tagline": "Creativity is all about connecting dots.",
+  "email": "jwei@ucsb.edu",
+  "links": {
+    "linkedin": "https://linkedin.com/in/jwei",
+    "github": "https://github.com/Jayweiii"
+  },
+  "resume": {
+    "href": "/resume/Jason-Wei-Resume-2024-11-19.pdf",
+    "label": "Résumé",
+    "date": "November 19, 2024"
+  },
+  "experience": [
+    {
+      "org": "Tesla",
+      "role": "Mechanical Design Engineer",
+      "team": "Battery Engineering",
+      "location": "Palo Alto, CA",
+      "start": "Jul 2025",
+      "end": "Present",
+      "bullets": []
+    },
+    {
+      "org": "Tesla",
+      "role": "Mechanical Design Engineering Intern",
+      "team": "High Voltage Distribution",
+      "location": "Palo Alto, CA",
+      "start": "Jun 2024",
+      "end": "Sep 2024",
+      "bullets": [
+        "Owned the design and DFM of two new die-cast high-voltage connector headers.",
+        "Designed a new face seal profile, iterated with Ansys hyperelastic simulations, improving the contact pressure to reaction force ratio by 52% over existing designs.",
+        "Designed critical-fastening snap joints, parametrically optimized for low insertion force and high retention force by linking CAD dimensions as Ansys input parameters across the design space.",
+        "Evaluated face seal performance boundaries under worst-case top cover deflections across thicknesses, materials, and stamping geometries, cutting header per-unit cost by 10% after removing unnecessary fasteners.",
+        "Routed harnesses and busbars in CAD to reduce bends and installation-order constraints."
+      ]
+    },
+    {
+      "org": "Gaucho Racing (UCSB Formula SAE Electric)",
+      "role": "Electrical Chief Engineer & Powertrain Lead",
+      "location": "Santa Barbara, CA",
+      "start": "Nov 2021",
+      "end": "",
+      "bullets": [
+        "Owned design and manufacturing of 8 wire-bonded and potted 2170 battery modules forming a 538 V, 6.2 kWh, 81.9 kW pack.",
+        "Designed external HV distribution and internal ancillaries (main contactors, mid-pack main fuse, HV disconnect, battery maintenance plugs).",
+        "Designed battery water-cooling cold plates, flow-simulated in SolidWorks Flow and validated the pressure-drop curve on a test rig.",
+        "Built MATLAB thermal models for cell-level fusible link sizing and pack-level thermal limits."
+      ]
+    },
+    {
+      "org": "Seek Thermal",
+      "role": "Mechanical Engineering Intern",
+      "location": "Goleta, CA",
+      "start": "Jun 2023",
+      "end": "Oct 2023",
+      "bullets": [
+        "Designed and implemented heat sinking solutions for thermal camera microprocessor; simulated in Solidworks Thermal study and validated in environmental chamber.",
+        "Machined go-no-go gauges for quantifying thermal shrinkage defects in injection molded PPSU plastic.",
+        "Created Excel script for analyzing worst-case and statistical tolerance stack-ups.",
+        "Created 30+ Agile ECOs and GD&T drawings for new products and product revisions.",
+        "Designed and manufactured 3 blackbodies with operating temperatures from −40°C to 60°C for infrared sensor calibration."
+      ]
+    },
+    {
+      "org": "California NanoSystems Institute (CNSI) at UCSB",
+      "role": "Workshop Wizard & 3D Printer Tool Lead",
+      "location": "Santa Barbara, CA",
+      "start": "Jun 2022",
+      "end": "Present",
+      "bullets": [
+        "Instructed over 200 researchers and grad students in workshop and microfluidic equipment.",
+        "Fabricated and delivered over 100 CNC milled, 3D printed, and laser cut custom user orders.",
+        "Managed, repaired, and created SOPs for 3D printers and laser cutters (Formlabs Form 3, Ultimaker S5, Stratasys F270, Stratasys Objet 30 Pro, and Rayjet 300)."
+      ]
+    },
+    {
+      "org": "UCSB Thermofluid Energy Research Laboratory",
+      "role": "Undergraduate Researcher",
+      "location": "Santa Barbara, CA",
+      "start": "Apr 2023",
+      "end": "Sep 2023",
+      "bullets": [
+        "CNC milled and 3D printed a fluid boiling fixture for a NASA ISS experiment, analyzing the role of surface structures on flow boiling instabilities.",
+        "Researched and presented the use of vapor chambers, which utilize liquid-gas phase change, as a heat spreader for EV battery thermal management.",
+        "Characterizing heat pipe thermal gradients and thermal conductivities using custom built test bench.",
+        "Presented research on a novel EV battery cooling method at the UCSB CSEP Colloquium Poster Session in August 2023."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "University of California – Santa Barbara",
+      "credential": "B.S. Mechanical Engineering",
+      "location": "Santa Barbara, CA",
+      "dates": "Sep 2021 – Jun 2025",
+      "details": [
+        "FSAE Electrical Chief Engineer & Powertrain Lead, Dean's List, TFEL Undergraduate Researcher, CNSI Workshop Wizard, Edison Research Scholar, Qualcomm MESA Idea Accelerator, Wind Ensemble Clarinetist, LoL Esports Player.",
+        "Relevant coursework: Heat Transfer, Mechatronics, Materials, Thermodynamics, Circuits, Machine Learning, Statics, and Dynamics."
+      ]
+    },
+    {
+      "school": "Amador Valley High School",
+      "credential": "Wind Ensemble I, Tennis #2 Singles, VEX Robotics State Excellence Award",
+      "location": "",
+      "dates": "",
+      "details": [],
+      "link": {
+        "href": "https://open.spotify.com/artist/0Z10aANzlU43glKBaGnpAB?si=Eq_tm-ajR7WANFCjz_7fUw",
+        "label": "Listen to our concerts",
+        "note": "live from the Chicago Midwest Clinic"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "group": "Design for Manufacturing",
+      "items": ["GD&T", "Worst-Case & Statistical Tolerance Analysis", "Die Casting"]
+    },
+    {
+      "group": "CAD, Simulations, & CAM",
+      "items": ["Catia3DX", "Ansys Mechanical", "SolidWorks", "HSMWorks"]
+    },
+    {
+      "group": "Thermal Systems",
+      "items": ["Matlab Lap Sim-coupled Battery Thermal Modeling", "Fusible Link Testing", "Battery Cold Plate"]
+    },
+    {
+      "group": "EV Powertrain Design",
+      "items": ["Custom Wire-bonded 538V 2170 Battery Modules", "HV Connectors", "Ancillaries"]
+    },
+    {
+      "group": "CNC Machining",
+      "items": ["Haas CNC Super Mini Mill", "Wazer Water Jet Cutter", "Trotec Laser Cutter"]
+    },
+    {
+      "group": "3D Printing",
+      "items": ["Stratasys Objet 30 Pro & F270", "Formlabs Form 3", "MiiCraft 50", "Ultimaker S5", "Prusa i3 Mk.3"]
+    },
+    {
+      "group": "Programming",
+      "items": ["Matlab", "Python (ScikitLearn & Tensorflow)", "Arduino"]
+    }
+  ],
+  "honors": [
+    {
+      "group": "Academic",
+      "items": [
+        { "year": "2023", "text": "Dean's List, 3.75 GPA or higher" },
+        { "year": "2021", "text": "AP Scholar with Distinction, 9 AP tests with a 5 score" },
+        { "year": "2021", "text": "President's Education Award, Outstanding Academic Achievement — 35 ACT Score" },
+        { "year": "2020", "text": "National Merit Scholarship, Letter of Commendation" }
+      ]
+    },
+    {
+      "group": "Volunteering & extracurricular",
+      "items": [
+        { "year": "2023", "text": "MESA Qualcomm Idea Accelerator Second Place, awarded for the JAM Navigation prototype" },
+        { "year": "2021", "text": "Gold Presidential Volunteer Award, over 500 volunteer hours" },
+        { "year": "2018", "text": "VEX EDR Robotics California State Excellence Award, most prestigious award for best all-around robot" },
+        { "year": "2017", "text": "VEX EDR Robotics Regional Champion, Tournament Champion" }
+      ]
+    }
+  ]
+}

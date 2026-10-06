@@ -1,0 +1,18 @@
+[
+  {
+    "source": "/fsae-battery-pack-design/",
+    "destination": "/fsae-gr23-battery-segment-design/"
+  },
+  {
+    "source": "/fsae-electric-liquid-cooling-design/",
+    "destination": "/fsae-gr24-battery-cooling-cold-plate-leak-test/"
+  },
+  {
+    "source": "/page/2/",
+    "destination": "/projects/"
+  },
+  {
+    "source": "/page/3/",
+    "destination": "/projects/"
+  }
+]
