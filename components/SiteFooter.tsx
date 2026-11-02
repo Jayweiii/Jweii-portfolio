@@ -20,7 +20,7 @@ export function SiteFooter() {
             GitHub
           </a>
           <Link className="py-1 hover:text-accent" href="/about-me/">
-            {profile.resume.label} · {profile.resume.date}
+            {profile.resume.label}
           </Link>
         </div>
       </div>

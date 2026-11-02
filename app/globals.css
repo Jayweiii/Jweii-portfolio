@@ -3,12 +3,194 @@
 @theme inline {
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --color-paper: #f4f1ea;
-  --color-ink: #1c1917;
-  --color-muted: #57534e;
-  --color-line: #e3ddd3;
-  --color-card: #fffcf8;
-  --color-accent: #9f2d1c;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --color-paper: #f3f5f7;
+  --color-ink: #14181d;
+  --color-muted: #4b5563;
+  --color-line: #cfd6de;
+  --color-card: #ffffff;
+  --color-accent: #1d4f91;
+  --color-accent-strong: #153a6b;
+  --color-wash: #e6eaef;
+  --color-wash2: #dde3ea;
+}
+
+/* Signature: hairline frame with corner ticks (cards) */
+.ticks {
+  position: relative;
+}
+
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  border: 0 solid var(--color-accent);
+  transition: width 0.2s, height 0.2s;
+}
+
+.ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticks::before,
+  .ticks::after {
+    transition: none;
+  }
+}
+
+.ticks:hover::before,
+.ticks:hover::after,
+.ticks:focus-visible::before,
+.ticks:focus-visible::after {
+  width: 16px;
+  height: 16px;
+}
+
+/* Sheet zoning: numbers across top/bottom, letters down the long sides */
+.zone-row {
+  display: flex;
+  height: 1.25rem;
+  border-color: color-mix(in srgb, var(--color-ink) 40%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-accent);
+}
+
+.zone-row > span {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.zone-row > span + span {
+  border-left: 1px solid var(--color-line);
+}
+
+.zone-col {
+  display: none;
+  position: absolute;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 1.5rem;
+  flex-direction: column;
+  border-color: color-mix(in srgb, var(--color-ink) 40%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-accent);
+}
+
+.zone-col > span {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.zone-col > span + span {
+  border-top: 1px solid var(--color-line);
+}
+
+@media (min-width: 768px) {
+  .zone-col {
+    display: flex;
+  }
+}
+
+/* View / detail callout tab with a leader line */
+.view-tab {
+  position: absolute;
+  top: 0;
+  left: 1.25rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.6rem;
+  transform: translateY(-50%);
+  background: var(--color-paper);
+  padding: 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.view-tab::after {
+  content: "";
+  align-self: center;
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.view {
+  border-top: 1px solid var(--color-line);
+}
+
+/* Light drafting grid, faded toward the bottom */
+.grid-paper {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-accent) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 7%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+/* Dimension line */
+.dim {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.dim::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.dim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  opacity: 0.6;
+}
+
+.dim > span {
+  position: relative;
+  z-index: 1;
+  background: var(--color-paper);
+  padding: 0 0.6rem;
 }
 
 html {
@@ -23,7 +205,7 @@ body {
 }
 
 ::selection {
-  background: #f0c7b8;
+  background: #b9d0ea;
 }
 
 :focus-visible {
@@ -125,7 +307,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  background: #ebe6de;
+  background: var(--color-wash);
 }
 
 .prose figcaption {
@@ -153,8 +335,8 @@ body {
 
 .prose pre {
   overflow-x: auto;
-  background: #1c1917;
-  color: #f4f1ea;
+  background: #14181d;
+  color: #f3f5f7;
   padding: 1rem 1.1rem;
   font-size: 0.85rem;
   line-height: 1.55;
@@ -165,7 +347,7 @@ body {
 }
 
 .prose :not(pre) > code {
-  background: #efeae2;
+  background: var(--color-wash);
   padding: 0.1rem 0.3rem;
   font-size: 0.9em;
 }
@@ -174,4 +356,43 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* BOM table: stack rows as cards on small screens */
+@media (max-width: 40rem) {
+  .bom thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .bom,
+  .bom tbody,
+  .bom tr,
+  .bom td {
+    display: block;
+  }
+  .bom tr {
+    padding: 0.5rem 0.25rem;
+  }
+  .bom td {
+    padding: 0.2rem 0.6rem !important;
+  }
+  .bom td:not(:nth-child(3), :nth-child(5))::before {
+    content: attr(data-label) " ";
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+    color: var(--color-muted);
+  }
+}
+
+/* Detail callout: circled, scaled-up view */
+.detail-circle {
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-accent);
+  overflow: hidden;
+  aspect-ratio: 1;
 }

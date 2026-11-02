@@ -8,6 +8,7 @@ import {
   getProjects,
   visibleCategories,
 } from "@/lib/content";
+import { View } from "@/components/View";
 import { renderMarkdown } from "@/lib/markdown";
 import { profile } from "@/lib/profile";
 
@@ -47,7 +48,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const categories = visibleCategories(project);
 
   return (
-    <article className="mx-auto max-w-3xl px-5 py-14">
+    <>
+    <View label="View A" className="!border-t-0">
+    <article className="mx-auto max-w-5xl px-5 py-14">
       <p className="text-sm text-muted">
         <Link href="/projects/" className="hover:text-accent">
           Projects
@@ -74,13 +77,38 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <p className="mt-6">
           <a
             href={project.link}
-            className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+            className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-accent-strong"
           >
             {project.linkLabel ?? "Open site"}
           </a>
         </p>
       ) : null}
-      <div className="prose mt-10" dangerouslySetInnerHTML={{ __html: html }} />
+    </article>
+    </View>
+
+    {project.cover ? (
+      <View label="Detail A" scale="2:1" className="mx-auto max-w-5xl px-5 pb-10 pt-10">
+        <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_16rem]">
+          <figure className="ticks relative border border-line bg-card p-3">
+            <img src={project.cover} alt="" className="aspect-[4/3] w-full bg-wash object-cover" />
+            <figcaption className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
+              View A · {project.title}
+            </figcaption>
+          </figure>
+          <figure className="mx-auto w-48 md:w-full">
+            <div className="detail-circle bg-wash">
+              <img src={project.cover} alt="" className="h-full w-full scale-[2] object-cover" />
+            </div>
+            <figcaption className="mt-2 text-center font-mono text-[0.62rem] uppercase tracking-[0.16em] text-accent">
+              Detail A · 2:1
+            </figcaption>
+          </figure>
+        </div>
+      </View>
+    ) : null}
+
+    <View label="Notes" className="mx-auto max-w-5xl px-5 pb-14 pt-10">
+      <div className="prose max-w-3xl" dangerouslySetInnerHTML={{ __html: html }} />
       <nav aria-label="More projects" className="mt-14 grid gap-4 border-t border-line pt-6 sm:grid-cols-2">
         {next ? (
           <Link href={`/${next.slug}/`} className="hover:text-accent">
@@ -97,6 +125,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </Link>
         ) : null}
       </nav>
-    </article>
+    </View>
+    </>
   );
 }
