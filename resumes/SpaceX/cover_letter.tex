@@ -1,0 +1,113 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Important note:
+% This template must be compiled with XeLaTeX, the below lines will ensure this
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt, letterpaper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
+ 
+\fontdir[fonts/] % Specify the location of the included fonts
+
+% Color for highlights
+%\colorlet{awesome}{awesome-skyblue} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
+\definecolor{awesome}{HTML}{0BA89A} % UCSB sea green
+
+% Colors for text - uncomment and modify
+%\definecolor{darktext}{HTML}{000000}
+\definecolor{text}{HTML}{000000}
+\definecolor{graytext}{HTML}{000000}
+%\definecolor{lighttext}{HTML}{000000}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+
+%----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%----------------------------------------------------------------------------------------
+
+\name{Jason C.}{Wei}
+\address{Pleasanton, California, USA}
+\mobile{(925) 352-7600}
+\github{Jayweiii}
+\homepage{jweii.com}
+\email{jwei@ucsb.edu}
+\linkedin{jwei}
+%\skype{skypeid}
+%\stackoverflow{SOid}{SOname}
+%\twitter{@twit}
+%\linkedin{linkedin name}
+%\reddit{reddit account}
+%\xing{xing name}
+%\extrainfo{test} % Other text you want to include on this line
+
+\position{Mechanical Engineer{\enskip\cdotp\enskip}UCSB} % Your expertise/fields
+\quote{Third-year MechE @ UCSB with extensive hands-on experience in EV powertrains, \\ designing for manufacturing, thermal systems modeling, CAD, and two-phase thermofluidics.} % A quote or statement
+
+%----------------------------------------------------------------------------------------
+%	RECIPIENT/POSITION/LETTER INFORMATION
+%	All of the below lines must be filled out
+%----------------------------------------------------------------------------------------
+
+\recipient{Hiring Manager}{Ford\\Dearborn, MI} % The company being applied to
+
+\letterdate{\today} % The date on the letter, default is the date of compilation
+
+\lettertitle{Engineering Intern} % The title of the letter
+
+\letteropening{Dear Ford,} % How the letter is opened
+
+\letterclosing{Kind regards,} % How the letter is closed
+
+% \letterenclosure[Attached]{Resume} % Any enclosures with the letter
+
+\makecvfooter{\today}{Jason C. Wei~~~·~~~Cover Letter}{} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+  
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvheader % Print the header
+
+\makelettertitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+\begin{cvletter}
+
+%------------------------------------------------
+Ever since I started our university's FSAE Electric team 3 years ago (we never had an internal combustion team), I've always known that I wanted to continue working on EVs after graduation. I want to make EVs more affordable, more fun, and more safe. By spending my last summer at Tesla on the HVD team as a mechanical design engineering intern, I was able to learn a tremendous amount about the exciting new technologies that are being developed, and also how to communicate and collaborate with others to make CAD designs a reality. 
+
+One example is a new underside sealing die-cast HV connector header that I owned the design and DFM for. Since it was my first time designing something for die-casting, my first few iterations had very uneven thickness, no drafting, and no features to accommodate for sliders. As I reviewed and iterated my designs with my mentor and team, some of these issues were fixed by referencing what we've designed in the past. However, as I learned how to communicate more clearly and effectively with our DFM partners and cross-functionally with other teams (that the headers interface with), I also gained deep understandings of the true manufacturing and space constraints. With this knowledge, I was able to optimize the header design for cost and performance in ways our team had not done before.
+
+I also applied this methodology to two other designs that I owned - face seals and snap joints. By challenging current in-use designs from a first principles approach, supported by extensive Ansys simulations and parametric optimizations, I was able to design a face seal profile with 52\% increased contact pressure to reaction force ratio and high performing snap joints for both glass-filled and non glass-filled plastics by parametrically sampling and simulating the entire CAD dimensional design space. Coming back to Tesla would allow me to close the design to simulation to testing loop, and further our understanding of phenomena such as compression set and stress relaxation.
+
+I am delighted to submit my application for the Engineering Intern position at Lucid Motors. As a third-year Mechanical Engineering student at the University of California - Santa Barbara with extensive hands-on experience in Formula SAE EV powertrain design, Simulink thermal systems modeling, Simulink circuit modeling, Ansys electrochemical cell modeling, Designing-for-Manufacturing, and  SolidWorks. I am confident that my multidisciplinary skill-set and experiences make me an excellent candidate for this internship.
+
+For the past summer, I worked as a mechanical engineering intern at Seek Thermal, designing and machining all of our IR sensor testing fixtures, which include working with TECs, solenoids, and heat sinking solutions. Additionally, I directly supported our assembly line by communicating with injection molding suppliers from China on our tolerance stack-ups and improving engineering drawings to improve production throughput. 
+
+At Gaucho Racing, I have been leading 60 engineers in the design and manufacturing of our wire bonded battery pack, drivetrain, and mounting solutions. For our second ever EV that we are building, I have coupled our vehicle's entire mechanical-electrical-thermal system in Simulink as it runs through a 22km endurance race track. I am now working closely with Hesse Mechatronics in the design and manufacturing of our new battery pack, utilizing their ultrasonic wire bonder for fusible links. 
+
+In my role as an undergraduate researcher at Prof. Yangying's Thermofluid Energy Research Laboratory, I recently presented my research on the performance and feasibility of using vapor chambers to increase EV battery cooling performance. Additionally, I have worked very closely with a PhD student and manufactured a flow boiling testing apparatus using 3D printing and CNC milling, which went up to the International Space Station in November 2022 as part of a NASA mission. 
+
+I am excited to bring the research, design, and manufacturing skills that I have accrued through hands-on engineering experiences to Ford. Thank you for considering my application. I look forward to discussing this internship opportunity and my qualifications in further detail.
+
+%------------------------------------------------
+
+\end{cvletter}
+
+%----------------------------------------------------------------------------------------
+
+\makeletterclosing % Print the signature and enclosures
+
+\end{document}
