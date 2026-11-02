@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ZoomLink as Link } from "@/components/Zoom";
 import { Bom, projectRows } from "@/components/Bom";
 import { View } from "@/components/View";
 import { getCategories, getProjects } from "@/lib/content";
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
   const categories = getCategories().filter((category) => category.slug !== "uncategorized");
 
   return (
-    <View label="Index" className="mx-auto max-w-6xl px-5 py-14 !border-t-0">
+    <View label="Index" className="mx-auto max-w-6xl px-5 py-8 !border-t-0">
       <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Bill of materials</p>
       <h1 className="mt-2 font-display text-5xl tracking-tight sm:text-6xl">Projects</h1>
       <p className="mt-4 max-w-2xl text-muted">

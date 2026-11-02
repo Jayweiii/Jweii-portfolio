@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Dimension } from "@/components/Dimension";
 import { View } from "@/components/View";
-import { profile } from "@/lib/profile";
+import { dateRange, profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
   title: "About",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <View label="View A" className="mx-auto max-w-6xl px-5 py-14 !border-t-0">
+    <View label="View A" className="mx-auto max-w-6xl px-5 py-8 !border-t-0">
       <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_16rem]">
         <div>
           <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Note 01</p>
@@ -66,11 +66,46 @@ export default function AboutPage() {
           </a>
         </li>
         <li>
-          <a className="underline underline-offset-4 hover:text-accent" href="/#revisions">
+          <a className="underline underline-offset-4 hover:text-accent" href="#revisions">
             Work history
           </a>
         </li>
       </ul>
+
+      <section id="revisions" aria-labelledby="work-heading" className="mt-12 scroll-mt-16">
+        <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Revisions</p>
+        <h2 id="work-heading" className="mt-2 font-display text-3xl">
+          Work
+        </h2>
+        <div className="mt-5 overflow-x-auto border border-ink/70 bg-card">
+          <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-ink/70 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
+                <th className="w-14 border-r border-line p-2.5 font-normal">Rev</th>
+                <th className="w-44 border-r border-line p-2.5 font-normal">Date</th>
+                <th className="border-r border-line p-2.5 font-normal">Description</th>
+                <th className="p-2.5 font-normal">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              {profile.experience.map((item, i) => (
+                <tr key={`${item.org}-${item.role}-${item.start}`} className="border-b border-line last:border-b-0">
+                  <td className="border-r border-line p-2.5 font-mono text-accent">
+                    {String.fromCharCode(65 + profile.experience.length - 1 - i)}
+                  </td>
+                  <td className="border-r border-line p-2.5 text-muted">{dateRange(item.start, item.end)}</td>
+                  <td className="border-r border-line p-2.5">
+                    <span className="font-medium">{item.org}</span>
+                    <span className="text-muted"> · {item.role}</span>
+                    {item.team ? <span className="text-muted">, {item.team}</span> : null}
+                  </td>
+                  <td className="p-2.5 text-muted">{item.location}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
     </View>
   );
 }

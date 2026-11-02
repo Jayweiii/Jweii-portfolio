@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ZoomLink as Link } from "@/components/Zoom";
 import { notFound } from "next/navigation";
 import { Bom, projectRows } from "@/components/Bom";
 import { getTags, projectsWithTag } from "@/lib/content";
@@ -28,7 +28,7 @@ export default async function TagPage({ params }: { params: Promise<{ slug: stri
   const projects = projectsWithTag(slug);
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14">
+    <div className="mx-auto max-w-6xl px-5 py-8">
       <p className="text-sm text-muted">
         <Link href="/projects/" className="hover:text-accent">
           Projects

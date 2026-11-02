@@ -396,3 +396,218 @@ body {
   overflow: hidden;
   aspect-ratio: 1;
 }
+
+/* ---- Landscape sheet: fixed viewport, zoomable details ---- */
+html {
+  scroll-behavior: auto;
+  overflow: hidden;
+}
+
+.stage-page {
+  position: absolute;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-top: 0.75rem;
+  will-change: transform, opacity;
+}
+
+.enter-in {
+  animation: zoom-enter-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.enter-out {
+  animation: zoom-enter-out 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.leave-in {
+  animation: zoom-leave-in 0.28s ease-in both;
+}
+.leave-out {
+  animation: zoom-leave-out 0.28s ease-in both;
+}
+
+@keyframes zoom-enter-in {
+  from { opacity: 0; transform: scale(0.35); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes zoom-enter-out {
+  from { opacity: 0; transform: scale(2.4); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes zoom-leave-in {
+  to { opacity: 0; transform: scale(2.4); }
+}
+@keyframes zoom-leave-out {
+  to { opacity: 0; transform: scale(0.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-page,
+  .enter-in,
+  .enter-out,
+  .leave-in,
+  .leave-out {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+/* Home: drawing area + BOM, sized to the stage */
+.home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  height: 100%;
+  margin-top: -0.75rem;
+}
+
+.home-bom {
+  border-top: 1px solid var(--color-ink);
+  padding: 0.75rem;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .home-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    overflow: hidden;
+  }
+  .home-bom {
+    border-top: 0;
+    border-left: 1px solid color-mix(in srgb, var(--color-ink) 70%, transparent);
+    overflow: hidden;
+    padding: 0.75rem 0.75rem 0.5rem;
+  }
+}
+
+.details-grid {
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: space-evenly;
+  gap: 0.75rem 0.5rem;
+  margin-top: 0.75rem;
+  list-style: none;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .details-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.detail-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  --d: min(17vh, 12vw);
+}
+
+.detail-ring {
+  display: block;
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px dashed color-mix(in srgb, var(--color-accent) 55%, transparent);
+  transition: transform 0.2s;
+}
+
+.detail-ring .detail-circle {
+  display: block;
+  width: var(--d);
+  height: var(--d);
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  font-size: 0.8rem;
+}
+
+.detail-link:hover .detail-ring,
+.detail-link:focus-visible .detail-ring {
+  transform: scale(1.05);
+}
+.detail-link:hover .detail-circle,
+.detail-link:focus-visible .detail-circle {
+  border-color: var(--color-accent-strong);
+  border-width: 2px;
+}
+
+.detail-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.detail-title {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-height: 520px) {
+  .hero-summary {
+    display: none;
+  }
+  .detail-link {
+    --d: min(15vh, 10vw);
+  }
+}
+
+@media (reduced-motion: reduce), (prefers-reduced-motion: reduce) {
+  .detail-ring {
+    transition: none;
+  }
+}
+
+/* Compact BOM keeps the stacked-card layout off the landscape home */
+@media (max-width: 40rem) and (min-aspect-ratio: 1/1) {
+  .bom.bom-compact {
+    display: table;
+  }
+  .bom.bom-compact thead {
+    position: static;
+    width: auto;
+    height: auto;
+    clip: auto;
+  }
+  .bom.bom-compact tbody {
+    display: table-row-group;
+  }
+  .bom.bom-compact tr {
+    display: table-row;
+    padding: 0;
+  }
+  .bom.bom-compact td {
+    display: table-cell;
+    padding: 0.3rem 0.4rem !important;
+  }
+  .bom.bom-compact td::before {
+    content: none !important;
+  }
+}
+
+/* Portrait phones: ask to rotate; the dismissed sheet keeps panes scrolling inside the frame */
+.rotate-hint {
+  display: none;
+}
+
+@media (orientation: portrait) and (max-width: 700px) {
+  .rotate-hint {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+    background: var(--color-paper);
+  }
+}

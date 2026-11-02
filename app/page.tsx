@@ -1,154 +1,100 @@
-import Link from "next/link";
-import { Dimension } from "@/components/Dimension";
-import { Bom, projectRows } from "@/components/Bom";
-import { ProjectCard } from "@/components/ProjectCard";
-import { View } from "@/components/View";
+import { Bom, partNo, type BomRow } from "@/components/Bom";
+import { ZoomLink } from "@/components/Zoom";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
-import { dateRange, profile } from "@/lib/profile";
+import { profile } from "@/lib/profile";
+
+const LETTERS = "ABCDEFGH";
+const FEATURED_DETAILS = 4;
+
+type Detail = {
+  letter: string;
+  label: string;
+  href: string;
+  image?: string;
+  caption?: string;
+};
 
 export default function HomePage() {
-  const featured = getFeaturedProjects();
   const projects = getProjects();
+  const featured = getFeaturedProjects().slice(0, FEATURED_DETAILS);
+
+  const details: Detail[] = [
+    { letter: "A", label: "About", href: "/about-me/", image: profile.portrait.src },
+    { letter: "B", label: "Projects", href: "/projects/", caption: `${projects.length} items` },
+    ...featured.map((p, i) => ({
+      letter: LETTERS[i + 2],
+      label: p.title,
+      href: `/${p.slug}/`,
+      image: p.cover,
+    })),
+  ];
+
+  const rows: BomRow[] = [
+    { item: "A", part: "JW-003", description: "About", year: "Sh. 3", href: "/about-me/" },
+    { item: "B", part: "JW-002", description: "Projects", year: "Sh. 2", href: "/projects/" },
+    ...featured.map((p, i) => ({
+      item: LETTERS[i + 2],
+      part: partNo(projects.findIndex((x) => x.slug === p.slug)),
+      description: p.title,
+      year: p.date ? p.date.slice(0, 4) : undefined,
+      href: `/${p.slug}/`,
+    })),
+  ];
 
   return (
-    <>
-      <View label="View A" className="!border-t-0">
+    <div className="home-grid">
+      <section aria-labelledby="sheet-heading" className="home-drawing relative min-h-0">
         <div aria-hidden="true" className="grid-paper pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
-          <div>
-            <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">
-              {profile.team} · {profile.company}
-            </p>
-            <h1 className="mt-4 font-display text-5xl leading-[1.02] tracking-tight sm:text-7xl">Jason Wei</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed">{profile.summary}</p>
-            <p className="mt-4 text-sm text-muted">
+        <div className="relative flex h-full flex-col px-4 py-3">
+          <div className="home-intro">
+            <h1 id="sheet-heading" className="font-display text-3xl leading-none tracking-tight sm:text-4xl">
+              {profile.name}
+            </h1>
+            <p className="hero-summary mt-2 max-w-xl text-sm leading-snug">{profile.summary}</p>
+            <p className="mt-1 text-xs text-muted">
               {profile.role}, {profile.team} · {profile.location}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/projects/"
-                className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-accent-strong"
-              >
-                View projects
-              </Link>
-              <Link
-                href="/about-me/"
-                className="inline-flex min-h-11 items-center border border-ink px-4 text-sm hover:border-accent hover:text-accent"
-              >
-                About & résumé
-              </Link>
-            </div>
           </div>
-          <div className="md:w-full md:max-w-xs md:justify-self-end">
-            <img
-              src={profile.portrait.src}
-              alt={profile.portrait.alt}
-              width={profile.portrait.width}
-              height={profile.portrait.height}
-              fetchPriority="high"
-              className="aspect-square w-36 object-cover sm:w-52 md:w-full"
-            />
-            <Dimension label={profile.name} className="mt-3 w-36 sm:w-52 md:w-full" />
-          </div>
+          <ul className="details-grid">
+            {details.map((d) => (
+              <li key={d.href}>
+                <ZoomLink href={d.href} className="detail-link group" aria-label={`Detail ${d.letter}: ${d.label}`}>
+                  <span className="detail-ring">
+                    <span className="detail-circle bg-wash">
+                      {d.image ? (
+                        <img src={d.image} alt="" loading="eager" decoding="async" className="h-full w-full object-cover" />
+                      ) : (
+                        <span className="grid h-full w-full place-items-center p-2 text-center font-display leading-tight">
+                          {d.caption ?? d.label}
+                        </span>
+                      )}
+                    </span>
+                  </span>
+                  <span className="detail-caption">
+                    <span className="text-accent">Detail {d.letter}</span>
+                    <span className="detail-title">{d.label}</span>
+                  </span>
+                </ZoomLink>
+              </li>
+            ))}
+          </ul>
         </div>
-      </View>
+      </section>
 
-      <Dimension label="Selected work" className="mx-5 my-2" />
-
-      <View label="Detail B" scale="2:1" className="mx-auto max-w-6xl px-5 py-16">
-        <div className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Selected</p>
-            <h2 id="featured-heading" className="mt-2 font-display text-4xl">
-              Projects
-            </h2>
-          </div>
-          <Link href="/projects/" className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
-            All projects
-          </Link>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i + 1} />
-          ))}
-        </div>
-      </View>
-
-      <Dimension label="History" className="mx-5 my-2" />
-
-      <View id="revisions" label="Detail C" className="scroll-mt-24">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Revisions</p>
-              <h2 id="experience-heading" className="mt-2 font-display text-4xl">
-                Work
-              </h2>
-            </div>
-            <a href={profile.resume.href} className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
-              {profile.resume.label}
-            </a>
-          </div>
-          <div className="overflow-x-auto border border-ink/70 bg-card">
-            <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
-              <thead>
-                <tr className="border-b border-ink/70 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
-                  <th className="w-14 border-r border-line p-2.5 font-normal">Rev</th>
-                  <th className="w-44 border-r border-line p-2.5 font-normal">Date</th>
-                  <th className="border-r border-line p-2.5 font-normal">Description</th>
-                  <th className="p-2.5 font-normal">Location</th>
-                </tr>
-              </thead>
-              <tbody>
-                {profile.experience.map((item, i) => (
-                  <tr key={`${item.org}-${item.role}-${item.start}`} className="border-b border-line last:border-b-0">
-                    <td className="border-r border-line p-2.5 font-mono text-accent">
-                      {String.fromCharCode(65 + profile.experience.length - 1 - i)}
-                    </td>
-                    <td className="border-r border-line p-2.5 text-muted">{dateRange(item.start, item.end)}</td>
-                    <td className="border-r border-line p-2.5">
-                      <span className="font-medium">{item.org}</span>
-                      <span className="text-muted"> · {item.role}</span>
-                      {item.team ? <span className="text-muted">, {item.team}</span> : null}
-                    </td>
-                    <td className="p-2.5 text-muted">{item.location}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </View>
-
-      <Dimension label="Contents" className="mx-5 my-2" />
-
-      <View label="Section D" className="mx-auto max-w-6xl px-5 pb-4 pt-10">
-        <h2 id="pages-heading" className="font-display text-3xl">
-          Pages
+      <section aria-labelledby="bom-heading" className="home-bom min-h-0 border-ink/70">
+        <h2
+          id="bom-heading"
+          className="mb-2 font-mono text-[0.65rem] font-normal uppercase tracking-[0.18em] text-accent"
+        >
+          Bill of materials
         </h2>
-        <div className="mt-6">
-          <Bom
-            caption="Site contents"
-            yearLabel="Sheet"
-            rows={[
-              { part: "JW-001", description: "Home", detail: "Summary, selected work, history", year: "1", href: "/" },
-              { part: "JW-002", description: "Projects", detail: "Full project list", year: "2", href: "/projects/" },
-              { part: "JW-003", description: "About", detail: "Bio and résumé", year: "3", href: "/about-me/" },
-            ]}
-          />
-        </div>
-      </View>
-
-      <Dimension label="Index" className="mx-5 my-2" />
-
-      <View label="Section E" className="mx-auto max-w-6xl px-5 pb-8 pt-10">
-        <h2 id="index-heading" className="font-display text-3xl">
-          Every project
-        </h2>
-        <div className="mt-6">
-          <Bom rows={projectRows(projects)} caption="All projects" yearLabel="Year" />
-        </div>
-      </View>
-    </>
+        <Bom rows={rows} caption="Sheet contents" yearLabel="Qty / Yr" compact />
+        <p className="mt-2 text-right text-xs">
+          <ZoomLink href="/projects/" className="underline decoration-line underline-offset-4 hover:text-accent">
+            All {projects.length} projects →
+          </ZoomLink>
+        </p>
+      </section>
+    </div>
   );
 }

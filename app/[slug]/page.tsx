@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ZoomLink as Link } from "@/components/Zoom";
 import { notFound } from "next/navigation";
 import {
   adjacentProjects,
@@ -50,7 +50,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <>
     <View label="View A" className="!border-t-0">
-    <article className="mx-auto max-w-5xl px-5 py-14">
+    <article className="mx-auto max-w-5xl px-5 py-8">
       <p className="text-sm text-muted">
         <Link href="/projects/" className="hover:text-accent">
           Projects

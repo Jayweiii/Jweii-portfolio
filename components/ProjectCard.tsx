@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ZoomLink as Link } from "@/components/Zoom";
 import { visibleCategories } from "@/lib/content";
 import type { Project } from "@/lib/types";
 
