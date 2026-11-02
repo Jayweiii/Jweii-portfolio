@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { TitleBlock } from "@/components/TitleBlock";
 import { profile } from "@/lib/profile";
 
 export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-line">
+      <div className="mx-auto max-w-6xl px-5 pt-12">
+        <TitleBlock />
+      </div>
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-2">
         <div>
           <p className="font-display text-2xl">Jason Wei</p>

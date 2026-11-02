@@ -23,7 +23,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/projects/"
-                className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+                className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-accent-strong"
               >
                 View projects
               </Link>
@@ -59,8 +59,8 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+          {featured.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i + 1} />
           ))}
         </div>
       </section>

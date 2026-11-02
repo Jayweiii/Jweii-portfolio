@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ExperienceList } from "@/components/ExperienceList";
+import { TitleBlock } from "@/components/TitleBlock";
 import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={profile.resume.href}
-              className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+              className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-accent-strong"
             >
               {profile.resume.label} · {profile.resume.date}
             </a>
@@ -49,6 +50,8 @@ export default function AboutPage() {
           className="aspect-square w-full max-w-xs object-cover"
         />
       </div>
+
+      <TitleBlock className="mt-12" />
 
       <section id="experience" className="mt-16 scroll-mt-24">
         <h2 className="font-display text-4xl">Experience</h2>
