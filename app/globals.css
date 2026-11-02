@@ -3,12 +3,54 @@
 @theme inline {
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --color-paper: #f4f1ea;
   --color-ink: #1c1917;
   --color-muted: #57534e;
   --color-line: #e3ddd3;
   --color-card: #fffcf8;
-  --color-accent: #9f2d1c;
+  --color-accent: #b3261e;
+  --color-accent-strong: #8f1d17;
+  --color-wash: #ebe6de;
+  --color-wash2: #e7e1d8;
+}
+
+/* Signature: racing-line trace in the hero (draws once, static if reduced motion) */
+.lap-trace path.line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lap-trace path.line {
+    stroke-dashoffset: 1;
+    animation: draw-lap 2.4s ease-out 0.2s forwards;
+  }
+  .lap-trace circle.car {
+    opacity: 0;
+    animation: show-car 0.3s ease-out 2.4s forwards;
+  }
+}
+
+@keyframes draw-lap {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes show-car {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Signature: faint speed-trace line under section headings */
+.speed-rule {
+  height: 14px;
+  width: 100%;
+  max-width: 14rem;
+  margin-top: 0.6rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='224' height='14' viewBox='0 0 224 14' fill='none'%3E%3Cpath d='M0 10 H30 L42 3 H70 L82 11 H104 L116 4 H150 L160 9 H190 L200 2 H224' stroke='%23b3261e' stroke-opacity='.55' stroke-width='1.25' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat left center / contain;
 }
 
 html {
@@ -23,7 +65,7 @@ body {
 }
 
 ::selection {
-  background: #f0c7b8;
+  background: #f2c4bd;
 }
 
 :focus-visible {
@@ -125,7 +167,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  background: #ebe6de;
+  background: var(--color-wash);
 }
 
 .prose figcaption {
@@ -165,7 +207,7 @@ body {
 }
 
 .prose :not(pre) > code {
-  background: #efeae2;
+  background: var(--color-wash);
   padding: 0.1rem 0.3rem;
   font-size: 0.9em;
 }
