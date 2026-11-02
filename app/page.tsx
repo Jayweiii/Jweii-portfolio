@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LapTrace } from "@/components/LapTrace";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
 import { dateRange, profile } from "@/lib/profile";
@@ -9,8 +10,9 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
+      <section className="relative overflow-hidden border-b border-line">
+        <LapTrace className="pointer-events-none absolute -right-10 bottom-0 hidden h-64 w-auto opacity-60 md:block" />
+        <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
           <div>
             <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">
               {profile.team} · {profile.company}
@@ -53,14 +55,15 @@ export default function HomePage() {
             <h2 id="featured-heading" className="mt-2 font-display text-4xl">
               Projects
             </h2>
+            <div className="speed-rule" aria-hidden="true" />
           </div>
           <Link href="/projects/" className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
             All projects
           </Link>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+          {featured.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i + 1} />
           ))}
         </div>
       </section>

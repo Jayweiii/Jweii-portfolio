@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={profile.resume.href}
-              className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+              className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-accent-strong"
             >
               {profile.resume.label} · {profile.resume.date}
             </a>
