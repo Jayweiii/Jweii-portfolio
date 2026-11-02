@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ZoomLink as Link } from "@/components/Zoom";
 import { notFound } from "next/navigation";
-import { ProjectCard } from "@/components/ProjectCard";
+import { Bom, projectRows } from "@/components/Bom";
 import { getTags, projectsWithTag } from "@/lib/content";
 
 export const dynamicParams = false;
@@ -28,7 +28,7 @@ export default async function TagPage({ params }: { params: Promise<{ slug: stri
   const projects = projectsWithTag(slug);
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14">
+    <div className="mx-auto max-w-6xl px-5 py-8">
       <p className="text-sm text-muted">
         <Link href="/projects/" className="hover:text-accent">
           Projects
@@ -37,10 +37,8 @@ export default async function TagPage({ params }: { params: Promise<{ slug: stri
         Tag
       </p>
       <h1 className="mt-3 font-display text-5xl tracking-tight">{tag.name}</h1>
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+      <div className="mt-10">
+        <Bom rows={projectRows(projects)} caption={`Projects tagged ${tag.name}`} yearLabel="Year" />
       </div>
     </div>
   );

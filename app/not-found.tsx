@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ZoomLink as Link } from "@/components/Zoom";
 
 export default function NotFound() {
   return (

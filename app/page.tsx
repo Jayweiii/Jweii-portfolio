@@ -1,118 +1,100 @@
-import Link from "next/link";
-import { ProjectCard } from "@/components/ProjectCard";
+import { Bom, partNo, type BomRow } from "@/components/Bom";
+import { ZoomLink } from "@/components/Zoom";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
-import { dateRange, profile } from "@/lib/profile";
+import { profile } from "@/lib/profile";
+
+const LETTERS = "ABCDEFGH";
+const FEATURED_DETAILS = 4;
+
+type Detail = {
+  letter: string;
+  label: string;
+  href: string;
+  image?: string;
+  caption?: string;
+};
 
 export default function HomePage() {
-  const featured = getFeaturedProjects();
   const projects = getProjects();
+  const featured = getFeaturedProjects().slice(0, FEATURED_DETAILS);
+
+  const details: Detail[] = [
+    { letter: "A", label: "About", href: "/about-me/", image: profile.portrait.src },
+    { letter: "B", label: "Projects", href: "/projects/", caption: `${projects.length} items` },
+    ...featured.map((p, i) => ({
+      letter: LETTERS[i + 2],
+      label: p.title,
+      href: `/${p.slug}/`,
+      image: p.cover,
+    })),
+  ];
+
+  const rows: BomRow[] = [
+    { item: "A", part: "JW-003", description: "About", year: "Sh. 3", href: "/about-me/" },
+    { item: "B", part: "JW-002", description: "Projects", year: "Sh. 2", href: "/projects/" },
+    ...featured.map((p, i) => ({
+      item: LETTERS[i + 2],
+      part: partNo(projects.findIndex((x) => x.slug === p.slug)),
+      description: p.title,
+      year: p.date ? p.date.slice(0, 4) : undefined,
+      href: `/${p.slug}/`,
+    })),
+  ];
 
   return (
-    <>
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
-          <div>
-            <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">
-              {profile.team} · {profile.company}
-            </p>
-            <h1 className="mt-4 font-display text-5xl leading-[1.02] tracking-tight sm:text-7xl">Jason Wei</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed">{profile.summary}</p>
-            <p className="mt-4 text-sm text-muted">
+    <div className="home-grid">
+      <section aria-labelledby="sheet-heading" className="home-drawing relative min-h-0">
+        <div aria-hidden="true" className="grid-paper pointer-events-none absolute inset-0" />
+        <div className="relative flex h-full flex-col px-4 py-3">
+          <div className="home-intro">
+            <h1 id="sheet-heading" className="font-display text-3xl leading-none tracking-tight sm:text-4xl">
+              {profile.name}
+            </h1>
+            <p className="hero-summary mt-2 max-w-xl text-sm leading-snug">{profile.summary}</p>
+            <p className="mt-1 text-xs text-muted">
               {profile.role}, {profile.team} · {profile.location}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/projects/"
-                className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
-              >
-                View projects
-              </Link>
-              <Link
-                href="/about-me/"
-                className="inline-flex min-h-11 items-center border border-ink px-4 text-sm hover:border-accent hover:text-accent"
-              >
-                About & résumé
-              </Link>
-            </div>
           </div>
-          <img
-            src={profile.portrait.src}
-            alt={profile.portrait.alt}
-            width={profile.portrait.width}
-            height={profile.portrait.height}
-            fetchPriority="high"
-            className="aspect-square w-36 object-cover sm:w-52 md:w-full md:max-w-xs md:justify-self-end"
-          />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16" aria-labelledby="featured-heading">
-        <div className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Selected</p>
-            <h2 id="featured-heading" className="mt-2 font-display text-4xl">
-              Projects
-            </h2>
-          </div>
-          <Link href="/projects/" className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
-            All projects
-          </Link>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-line" aria-labelledby="experience-heading">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">History of</p>
-              <h2 id="experience-heading" className="mt-2 font-display text-4xl">
-                Work
-              </h2>
-            </div>
-            <Link href="/about-me/#experience" className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
-              Full résumé
-            </Link>
-          </div>
-          <ol className="divide-y divide-line border-y border-line">
-            {profile.experience.map((item) => (
-              <li key={`${item.org}-${item.role}-${item.start}`} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr_auto] sm:items-baseline sm:gap-6">
-                <p className="text-sm text-muted">{dateRange(item.start, item.end)}</p>
-                <p>
-                  <span className="font-medium">{item.org}</span>
-                  <span className="text-muted"> · {item.role}</span>
-                  {item.team ? <span className="text-muted">, {item.team}</span> : null}
-                </p>
-                <p className="text-sm text-muted">{item.location}</p>
+          <ul className="details-grid">
+            {details.map((d) => (
+              <li key={d.href}>
+                <ZoomLink href={d.href} className="detail-link group" aria-label={`Detail ${d.letter}: ${d.label}`}>
+                  <span className="detail-ring">
+                    <span className="detail-circle bg-wash">
+                      {d.image ? (
+                        <img src={d.image} alt="" loading="eager" decoding="async" className="h-full w-full object-cover" />
+                      ) : (
+                        <span className="grid h-full w-full place-items-center p-2 text-center font-display leading-tight">
+                          {d.caption ?? d.label}
+                        </span>
+                      )}
+                    </span>
+                  </span>
+                  <span className="detail-caption">
+                    <span className="text-accent">Detail {d.letter}</span>
+                    <span className="detail-title">{d.label}</span>
+                  </span>
+                </ZoomLink>
               </li>
             ))}
-          </ol>
+          </ul>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-8" aria-labelledby="index-heading">
-        <h2 id="index-heading" className="font-display text-3xl">
-          Every project
+      <section aria-labelledby="bom-heading" className="home-bom min-h-0 border-ink/70">
+        <h2
+          id="bom-heading"
+          className="mb-2 font-mono text-[0.65rem] font-normal uppercase tracking-[0.18em] text-accent"
+        >
+          Bill of materials
         </h2>
-        <ul className="mt-6 divide-y divide-line border-y border-line">
-          {projects.map((project) => (
-            <li key={project.slug}>
-              <Link href={`/${project.slug}/`} className="flex items-baseline justify-between gap-4 py-3 hover:text-accent">
-                <span>{project.title}</span>
-                {project.date ? (
-                  <time dateTime={project.date} className="shrink-0 text-sm text-muted">
-                    {project.date.slice(0, 4)}
-                  </time>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Bom rows={rows} caption="Sheet contents" yearLabel="Qty / Yr" compact />
+        <p className="mt-2 text-right text-xs">
+          <ZoomLink href="/projects/" className="underline decoration-line underline-offset-4 hover:text-accent">
+            All {projects.length} projects →
+          </ZoomLink>
+        </p>
       </section>
-    </>
+    </div>
   );
 }

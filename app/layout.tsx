@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
+import { Sheet } from "@/components/Sheet";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { RotateHint, Stage, ZoomProvider } from "@/components/Zoom";
 import { profile } from "@/lib/profile";
 import "./globals.css";
 
@@ -74,14 +76,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={`${outfit.variable} ${fraunces.variable}`}>
-      <body className="min-h-screen antialiased">
+      <body className="h-dvh overflow-hidden antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a className="skip-link" href="#content">
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="content">{children}</main>
-        <SiteFooter />
+        <ZoomProvider>
+          <Sheet>
+            <SiteHeader />
+            <main id="content" className="flex min-h-0 flex-1 flex-col">
+              <Stage>{children}</Stage>
+            </main>
+            <SiteFooter />
+          </Sheet>
+          <RotateHint />
+        </ZoomProvider>
       </body>
     </html>
   );
