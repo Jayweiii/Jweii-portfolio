@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <p className="mt-6">
           <a
             href={project.link}
-            className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+            className="inline-flex min-h-11 items-center bg-accent px-4 text-sm font-medium text-paper hover:bg-accent-strong"
           >
             {project.linkLabel ?? "Open site"}
           </a>
