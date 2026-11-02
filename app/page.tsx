@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Dimension } from "@/components/Dimension";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
 import { dateRange, profile } from "@/lib/profile";
@@ -9,8 +10,9 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
+      <section className="relative border-b border-line">
+        <div aria-hidden="true" className="grid-paper pointer-events-none absolute inset-0" />
+        <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
           <div>
             <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">
               {profile.team} · {profile.company}
@@ -35,14 +37,17 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <img
-            src={profile.portrait.src}
-            alt={profile.portrait.alt}
-            width={profile.portrait.width}
-            height={profile.portrait.height}
-            fetchPriority="high"
-            className="aspect-square w-36 object-cover sm:w-52 md:w-full md:max-w-xs md:justify-self-end"
-          />
+          <div className="md:w-full md:max-w-xs md:justify-self-end">
+            <img
+              src={profile.portrait.src}
+              alt={profile.portrait.alt}
+              width={profile.portrait.width}
+              height={profile.portrait.height}
+              fetchPriority="high"
+              className="aspect-square w-36 object-cover sm:w-52 md:w-full"
+            />
+            <Dimension label={profile.name} className="mt-3 w-36 sm:w-52 md:w-full" />
+          </div>
         </div>
       </section>
 
@@ -65,32 +70,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-line" aria-labelledby="experience-heading">
+      <section id="revisions" className="scroll-mt-24 border-t border-line" aria-labelledby="experience-heading">
         <div className="mx-auto max-w-6xl px-5 py-16">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">History of</p>
+              <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Revisions</p>
               <h2 id="experience-heading" className="mt-2 font-display text-4xl">
                 Work
               </h2>
             </div>
-            <Link href="/about-me/#experience" className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
-              Full résumé
-            </Link>
+            <a href={profile.resume.href} className="text-sm underline decoration-line underline-offset-4 hover:text-accent">
+              {profile.resume.label}
+            </a>
           </div>
-          <ol className="divide-y divide-line border-y border-line">
-            {profile.experience.map((item) => (
-              <li key={`${item.org}-${item.role}-${item.start}`} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr_auto] sm:items-baseline sm:gap-6">
-                <p className="text-sm text-muted">{dateRange(item.start, item.end)}</p>
-                <p>
-                  <span className="font-medium">{item.org}</span>
-                  <span className="text-muted"> · {item.role}</span>
-                  {item.team ? <span className="text-muted">, {item.team}</span> : null}
-                </p>
-                <p className="text-sm text-muted">{item.location}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="overflow-x-auto border border-ink/70 bg-card">
+            <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-ink/70 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
+                  <th className="w-14 border-r border-line p-2.5 font-normal">Rev</th>
+                  <th className="w-44 border-r border-line p-2.5 font-normal">Date</th>
+                  <th className="border-r border-line p-2.5 font-normal">Description</th>
+                  <th className="p-2.5 font-normal">Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                {profile.experience.map((item, i) => (
+                  <tr key={`${item.org}-${item.role}-${item.start}`} className="border-b border-line last:border-b-0">
+                    <td className="border-r border-line p-2.5 font-mono text-accent">
+                      {String.fromCharCode(65 + profile.experience.length - 1 - i)}
+                    </td>
+                    <td className="border-r border-line p-2.5 text-muted">{dateRange(item.start, item.end)}</td>
+                    <td className="border-r border-line p-2.5">
+                      <span className="font-medium">{item.org}</span>
+                      <span className="text-muted"> · {item.role}</span>
+                      {item.team ? <span className="text-muted">, {item.team}</span> : null}
+                    </td>
+                    <td className="p-2.5 text-muted">{item.location}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 

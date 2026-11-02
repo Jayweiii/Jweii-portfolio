@@ -22,10 +22,10 @@ export default function ProjectsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Things I’ve made</p>
+      <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Drawing index</p>
       <h1 className="mt-2 font-display text-5xl tracking-tight sm:text-6xl">Projects</h1>
       <p className="mt-4 max-w-2xl text-muted">
-        Formula SAE battery work, a track-day lap app, shop projects, and research notes. Older pages keep the original write-ups.
+        Formula SAE battery work, a track-day lap app, shop projects, and research notes.
       </p>
       {categories.length > 0 ? (
         <nav aria-label="Project categories" className="mt-8 flex flex-wrap gap-2">
@@ -42,8 +42,8 @@ export default function ProjectsPage() {
         </nav>
       ) : null}
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+        {projects.map((project, i) => (
+          <ProjectCard key={project.slug} project={project} index={i + 1} />
         ))}
       </div>
     </div>

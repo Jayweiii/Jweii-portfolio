@@ -1,7 +1,7 @@
 ---
 title: "Blender Donut"
 date: "2022-10-29"
-excerpt: "To be updated"
+excerpt: ""
 source: "https://jweii.com/blender-donut/"
 featured: false
 cover: "/media/files/69463158c107.webp"
@@ -19,5 +19,3 @@ aliases: []
 <figure>
 <img src="/media/files/69463158c107.webp" width="0" height="0" alt="Blender Donut" />
 </figure>
-
-To be updated

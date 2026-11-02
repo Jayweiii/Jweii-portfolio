@@ -1,7 +1,7 @@
 ---
 title: "FSAE Precharge & Discharge Circuit"
 date: "2022-11-11"
-excerpt: "To be updated."
+excerpt: ""
 source: "https://jweii.com/fsae-precharge-discharge-circuit/"
 featured: false
 cover: "/media/files/8dd104529b4d.webp"
@@ -19,5 +19,3 @@ aliases: []
 <figure>
 <img src="/media/files/8dd104529b4d.webp" width="1678" height="666" alt="FSAE Precharge &amp; Discharge Circuit" />
 </figure>
-
-To be updated.

@@ -4,7 +4,7 @@ import type { Project } from "@/lib/types";
 
 export function ProjectCard({ project, index }: { project: Project; index?: number }) {
   const categories = visibleCategories(project);
-  const showExcerpt = project.excerpt && !/^to be updated\.?$/i.test(project.excerpt);
+  const showExcerpt = Boolean(project.excerpt);
   return (
     <article className="h-full">
       <Link
