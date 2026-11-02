@@ -1,5 +1,6 @@
 ---
 title: "Clockor"
+cover: "/media/clockor/clock_iso.svg"
 date: "2026-11"
 excerpt: "In progress. A hybrid motor clock: a spinning POV LED bar for the minute hand and a slow physical hour hand."
 featured: true
