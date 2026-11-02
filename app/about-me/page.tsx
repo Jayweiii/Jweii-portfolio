@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Dimension } from "@/components/Dimension";
-import { TitleBlock } from "@/components/TitleBlock";
 import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export default function AboutPage() {
         <div>
           <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Note 01</p>
           <h1 className="mt-3 font-display text-5xl tracking-tight sm:text-6xl">About</h1>
-          <div className="mt-8 max-w-xl space-y-3 font-display text-2xl leading-snug sm:text-3xl">
+          <div className="mt-8 max-w-xl space-y-4 text-base leading-relaxed sm:text-lg">
             {profile.bio.map((line) => (
               <p key={line}>{line}</p>
             ))}
@@ -54,9 +53,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <TitleBlock className="mt-16" title="About" sheet="2 of 2" dwg="JW-002" />
-
-      <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <ul className="mt-12flex flex-wrap gap-x-6 gap-y-2 text-sm">
         <li>
           <a className="underline underline-offset-4 hover:text-accent" href={profile.links.linkedin}>
             LinkedIn
