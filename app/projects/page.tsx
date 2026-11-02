@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ProjectCard } from "@/components/ProjectCard";
+import { Bom, projectRows } from "@/components/Bom";
 import { View } from "@/components/View";
 import { getCategories, getProjects } from "@/lib/content";
 import { profile } from "@/lib/profile";
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
 
   return (
     <View label="Index" className="mx-auto max-w-6xl px-5 py-14 !border-t-0">
-      <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Drawing index</p>
+      <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Bill of materials</p>
       <h1 className="mt-2 font-display text-5xl tracking-tight sm:text-6xl">Projects</h1>
       <p className="mt-4 max-w-2xl text-muted">
         Formula SAE battery work, a track-day lap app, shop projects, and research notes.
@@ -42,10 +42,8 @@ export default function ProjectsPage() {
           ))}
         </nav>
       ) : null}
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i + 1} />
-        ))}
+      <div className="mt-10">
+        <Bom rows={projectRows(projects)} caption="Projects bill of materials" yearLabel="Year" />
       </div>
     </View>
   );

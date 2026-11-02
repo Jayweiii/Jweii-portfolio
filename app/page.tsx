@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Dimension } from "@/components/Dimension";
+import { Bom, projectRows } from "@/components/Bom";
 import { ProjectCard } from "@/components/ProjectCard";
 import { View } from "@/components/View";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
@@ -119,26 +120,34 @@ export default function HomePage() {
         </div>
       </View>
 
+      <Dimension label="Contents" className="mx-5 my-2" />
+
+      <View label="Section D" className="mx-auto max-w-6xl px-5 pb-4 pt-10">
+        <h2 id="pages-heading" className="font-display text-3xl">
+          Pages
+        </h2>
+        <div className="mt-6">
+          <Bom
+            caption="Site contents"
+            yearLabel="Sheet"
+            rows={[
+              { part: "JW-001", description: "Home", detail: "Summary, selected work, history", year: "1", href: "/" },
+              { part: "JW-002", description: "Projects", detail: "Full project list", year: "2", href: "/projects/" },
+              { part: "JW-003", description: "About", detail: "Bio and résumé", year: "3", href: "/about-me/" },
+            ]}
+          />
+        </div>
+      </View>
+
       <Dimension label="Index" className="mx-5 my-2" />
 
-      <View label="Section D" className="mx-auto max-w-6xl px-5 pb-8 pt-10">
+      <View label="Section E" className="mx-auto max-w-6xl px-5 pb-8 pt-10">
         <h2 id="index-heading" className="font-display text-3xl">
           Every project
         </h2>
-        <ul className="mt-6 divide-y divide-line border-y border-line">
-          {projects.map((project) => (
-            <li key={project.slug}>
-              <Link href={`/${project.slug}/`} className="flex items-baseline justify-between gap-4 py-3 hover:text-accent">
-                <span>{project.title}</span>
-                {project.date ? (
-                  <time dateTime={project.date} className="shrink-0 text-sm text-muted">
-                    {project.date.slice(0, 4)}
-                  </time>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-6">
+          <Bom rows={projectRows(projects)} caption="All projects" yearLabel="Year" />
+        </div>
       </View>
     </>
   );
