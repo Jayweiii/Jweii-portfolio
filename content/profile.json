@@ -9,8 +9,7 @@
   "bio": [
     "I work on batteries at Tesla in Palo Alto.",
     "Before that I studied mechanical engineering at UCSB and led powertrain on Gaucho Racing’s FSAE Electric team.",
-    "I still spend a lot of time on cars, a Miata on weekends, and on small builds on the side.",
-    "Most of what I like doing is connecting those dots."
+    "I still spend weekends on a Miata, and on small builds on the side."
   ],
   "tagline": "connecting dots",
   "portrait": {
@@ -134,50 +133,105 @@
   "skills": [
     {
       "group": "Design for Manufacturing",
-      "items": ["GD&T", "Worst-Case & Statistical Tolerance Analysis", "Die Casting"]
+      "items": [
+        "GD&T",
+        "Worst-Case & Statistical Tolerance Analysis",
+        "Die Casting"
+      ]
     },
     {
       "group": "CAD, Simulations, & CAM",
-      "items": ["Catia3DX", "Ansys Mechanical", "SolidWorks", "HSMWorks"]
+      "items": [
+        "Catia3DX",
+        "Ansys Mechanical",
+        "SolidWorks",
+        "HSMWorks"
+      ]
     },
     {
       "group": "Thermal Systems",
-      "items": ["Matlab Lap Sim-coupled Battery Thermal Modeling", "Fusible Link Testing", "Battery Cold Plate"]
+      "items": [
+        "Matlab Lap Sim-coupled Battery Thermal Modeling",
+        "Fusible Link Testing",
+        "Battery Cold Plate"
+      ]
     },
     {
       "group": "EV Powertrain Design",
-      "items": ["Custom Wire-bonded 538V 2170 Battery Modules", "HV Connectors", "Ancillaries"]
+      "items": [
+        "Custom Wire-bonded 538V 2170 Battery Modules",
+        "HV Connectors",
+        "Ancillaries"
+      ]
     },
     {
       "group": "CNC Machining",
-      "items": ["Haas CNC Super Mini Mill", "Wazer Water Jet Cutter", "Trotec Laser Cutter"]
+      "items": [
+        "Haas CNC Super Mini Mill",
+        "Wazer Water Jet Cutter",
+        "Trotec Laser Cutter"
+      ]
     },
     {
       "group": "3D Printing",
-      "items": ["Stratasys Objet 30 Pro & F270", "Formlabs Form 3", "MiiCraft 50", "Ultimaker S5", "Prusa i3 Mk.3"]
+      "items": [
+        "Stratasys Objet 30 Pro & F270",
+        "Formlabs Form 3",
+        "MiiCraft 50",
+        "Ultimaker S5",
+        "Prusa i3 Mk.3"
+      ]
     },
     {
       "group": "Programming",
-      "items": ["Matlab", "Python (ScikitLearn & Tensorflow)", "Arduino"]
+      "items": [
+        "Matlab",
+        "Python (ScikitLearn & Tensorflow)",
+        "Arduino"
+      ]
     }
   ],
   "honors": [
     {
       "group": "Academic",
       "items": [
-        { "year": "2023", "text": "Dean's List, 3.75 GPA or higher" },
-        { "year": "2021", "text": "AP Scholar with Distinction, 9 AP tests with a 5 score" },
-        { "year": "2021", "text": "President's Education Award, Outstanding Academic Achievement — 35 ACT Score" },
-        { "year": "2020", "text": "National Merit Scholarship, Letter of Commendation" }
+        {
+          "year": "2023",
+          "text": "Dean's List, 3.75 GPA or higher"
+        },
+        {
+          "year": "2021",
+          "text": "AP Scholar with Distinction, 9 AP tests with a 5 score"
+        },
+        {
+          "year": "2021",
+          "text": "President's Education Award, Outstanding Academic Achievement — 35 ACT Score"
+        },
+        {
+          "year": "2020",
+          "text": "National Merit Scholarship, Letter of Commendation"
+        }
       ]
     },
     {
       "group": "Volunteering & extracurricular",
       "items": [
-        { "year": "2023", "text": "MESA Qualcomm Idea Accelerator Second Place, awarded for the JAM Navigation prototype" },
-        { "year": "2021", "text": "Gold Presidential Volunteer Award, over 500 volunteer hours" },
-        { "year": "2018", "text": "VEX EDR Robotics California State Excellence Award, most prestigious award for best all-around robot" },
-        { "year": "2017", "text": "VEX EDR Robotics Regional Champion, Tournament Champion" }
+        {
+          "year": "2023",
+          "text": "MESA Qualcomm Idea Accelerator Second Place, awarded for the JAM Navigation prototype"
+        },
+        {
+          "year": "2021",
+          "text": "Gold Presidential Volunteer Award, over 500 volunteer hours"
+        },
+        {
+          "year": "2018",
+          "text": "VEX EDR Robotics California State Excellence Award, most prestigious award for best all-around robot"
+        },
+        {
+          "year": "2017",
+          "text": "VEX EDR Robotics Regional Champion, Tournament Champion"
+        }
       ]
     }
   ]
