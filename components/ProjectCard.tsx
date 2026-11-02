@@ -19,10 +19,10 @@ export function ProjectCard({ project }: { project: Project }) {
             height={900}
             loading="lazy"
             decoding="async"
-            className="aspect-[4/3] w-full bg-[#ebe6de] object-cover"
+            className="aspect-[4/3] w-full bg-wash object-cover"
           />
         ) : (
-          <div className="flex aspect-[4/3] items-end bg-[#e7e1d8] p-4">
+          <div className="flex aspect-[4/3] items-end bg-wash2 p-4">
             <span className="font-display text-2xl leading-tight">{project.title}</span>
           </div>
         )}

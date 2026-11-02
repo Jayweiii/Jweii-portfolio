@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LedClock } from "@/components/LedClock";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
 import { dateRange, profile } from "@/lib/profile";
@@ -9,8 +10,9 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
+      <section className="relative overflow-hidden border-b border-line">
+        <LedClock className="pointer-events-none absolute -left-8 -top-8 h-44 w-44 opacity-40 sm:h-56 sm:w-56 md:left-auto md:right-[38%] md:top-6 md:opacity-60" />
+        <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
           <div>
             <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">
               {profile.team} · {profile.company}
@@ -23,7 +25,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/projects/"
-                className="inline-flex min-h-11 items-center bg-accent px-4 text-sm text-white hover:bg-[#841f12]"
+                className="inline-flex min-h-11 items-center bg-accent px-4 text-sm font-medium text-paper hover:bg-accent-strong"
               >
                 View projects
               </Link>
@@ -49,6 +51,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 py-16" aria-labelledby="featured-heading">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
+            <div className="led-row" aria-hidden="true" />
             <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Selected</p>
             <h2 id="featured-heading" className="mt-2 font-display text-4xl">
               Projects
@@ -69,6 +72,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-16">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
+              <div className="led-row" aria-hidden="true" />
               <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">History of</p>
               <h2 id="experience-heading" className="mt-2 font-display text-4xl">
                 Work
