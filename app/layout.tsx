@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
+import { Sheet } from "@/components/Sheet";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { profile } from "@/lib/profile";
@@ -79,9 +80,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#content">
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="content">{children}</main>
-        <SiteFooter />
+        <Sheet>
+          <SiteHeader />
+          <main id="content">{children}</main>
+          <SiteFooter />
+        </Sheet>
       </body>
     </html>
   );

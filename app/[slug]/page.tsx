@@ -8,6 +8,7 @@ import {
   getProjects,
   visibleCategories,
 } from "@/lib/content";
+import { View } from "@/components/View";
 import { renderMarkdown } from "@/lib/markdown";
 import { profile } from "@/lib/profile";
 
@@ -47,6 +48,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const categories = visibleCategories(project);
 
   return (
+    <View label="View A" className="!border-t-0">
     <article className="mx-auto max-w-3xl px-5 py-14">
       <p className="text-sm text-muted">
         <Link href="/projects/" className="hover:text-accent">
@@ -98,5 +100,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         ) : null}
       </nav>
     </article>
+    </View>
   );
 }

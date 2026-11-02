@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Dimension } from "@/components/Dimension";
 import { ProjectCard } from "@/components/ProjectCard";
+import { View } from "@/components/View";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
 import { dateRange, profile } from "@/lib/profile";
 
@@ -10,7 +11,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative border-b border-line">
+      <View label="View A" className="!border-t-0">
         <div aria-hidden="true" className="grid-paper pointer-events-none absolute inset-0" />
         <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.75fr)] md:py-20">
           <div>
@@ -49,9 +50,11 @@ export default function HomePage() {
             <Dimension label={profile.name} className="mt-3 w-36 sm:w-52 md:w-full" />
           </div>
         </div>
-      </section>
+      </View>
 
-      <section className="mx-auto max-w-6xl px-5 py-16" aria-labelledby="featured-heading">
+      <Dimension label="Selected work" className="mx-5 my-2" />
+
+      <View label="Detail B" scale="2:1" className="mx-auto max-w-6xl px-5 py-16">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Selected</p>
@@ -68,9 +71,11 @@ export default function HomePage() {
             <ProjectCard key={project.slug} project={project} index={i + 1} />
           ))}
         </div>
-      </section>
+      </View>
 
-      <section id="revisions" className="scroll-mt-24 border-t border-line" aria-labelledby="experience-heading">
+      <Dimension label="History" className="mx-5 my-2" />
+
+      <View id="revisions" label="Detail C" className="scroll-mt-24">
         <div className="mx-auto max-w-6xl px-5 py-16">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
@@ -112,9 +117,11 @@ export default function HomePage() {
             </table>
           </div>
         </div>
-      </section>
+      </View>
 
-      <section className="mx-auto max-w-6xl px-5 pb-8" aria-labelledby="index-heading">
+      <Dimension label="Index" className="mx-5 my-2" />
+
+      <View label="Section D" className="mx-auto max-w-6xl px-5 pb-8 pt-10">
         <h2 id="index-heading" className="font-display text-3xl">
           Every project
         </h2>
@@ -132,7 +139,7 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
-      </section>
+      </View>
     </>
   );
 }

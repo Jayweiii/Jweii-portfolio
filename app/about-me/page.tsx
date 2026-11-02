@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Dimension } from "@/components/Dimension";
+import { View } from "@/components/View";
 import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14">
+    <View label="View A" className="mx-auto max-w-6xl px-5 py-14 !border-t-0">
       <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_16rem]">
         <div>
           <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Note 01</p>
@@ -53,7 +54,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <ul className="mt-12flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <ul className="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-sm">
         <li>
           <a className="underline underline-offset-4 hover:text-accent" href={profile.links.linkedin}>
             LinkedIn
@@ -70,6 +71,6 @@ export default function AboutPage() {
           </a>
         </li>
       </ul>
-    </div>
+    </View>
   );
 }

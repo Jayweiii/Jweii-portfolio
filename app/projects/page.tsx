@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
+import { View } from "@/components/View";
 import { getCategories, getProjects } from "@/lib/content";
 import { profile } from "@/lib/profile";
 
@@ -21,7 +22,7 @@ export default function ProjectsPage() {
   const categories = getCategories().filter((category) => category.slug !== "uncategorized");
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14">
+    <View label="Index" className="mx-auto max-w-6xl px-5 py-14 !border-t-0">
       <p className="font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent">Drawing index</p>
       <h1 className="mt-2 font-display text-5xl tracking-tight sm:text-6xl">Projects</h1>
       <p className="mt-4 max-w-2xl text-muted">
@@ -46,6 +47,6 @@ export default function ProjectsPage() {
           <ProjectCard key={project.slug} project={project} index={i + 1} />
         ))}
       </div>
-    </div>
+    </View>
   );
 }
