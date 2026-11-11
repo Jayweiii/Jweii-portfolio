@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CellDrawing } from "@/components/CellDrawing";
+import { CellExplorer } from "@/components/CellDrawing";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionHead } from "@/components/SectionHead";
 import { getFeaturedProjects, getProjects } from "@/lib/content";
@@ -65,8 +65,7 @@ export default function HomePage() {
 
           <div className="relative flex items-center border-t border-line px-3 pb-6 pt-10 sm:px-6 lg:border-t-0 lg:py-14">
             <p className="label absolute left-4 top-3 sm:left-6">Detail — the 2170 cell, scale NTS</p>
-            <CellDrawing compact className="mx-auto w-full sm:hidden" />
-            <CellDrawing className="mx-auto hidden w-full max-w-[44rem] sm:block" />
+            <CellExplorer />
           </div>
         </div>
       </section>

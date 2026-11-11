@@ -10,9 +10,9 @@ export function ProjectCard({ project, detail, dwg }: { project: Project; detail
     <article className="h-full">
       <Link
         href={`/${project.slug}/`}
-        className="group flex h-full flex-col border border-line-strong bg-card transition-transform active:translate-y-px"
+        className="card group flex h-full flex-col border border-line-strong bg-card transition-transform active:translate-y-px"
       >
-        <div className="relative border-b border-line-strong bg-paper-2">
+        <div className="relative overflow-hidden border-b border-line-strong bg-paper-2">
           {project.cover ? (
             <img
               src={project.cover}
@@ -21,7 +21,7 @@ export function ProjectCard({ project, detail, dwg }: { project: Project; detail
               height={900}
               loading={detail === "A" || detail === "B" || detail === "C" ? "eager" : "lazy"}
               decoding="async"
-              className={`aspect-[4/3] w-full ${project.cover.endsWith(".svg") ? "object-contain p-6 svg-cover" : "object-cover"}`}
+              className={`card-img aspect-[4/3] w-full ${project.cover.endsWith(".svg") ? "object-contain p-6 svg-cover" : "object-cover"}`}
             />
           ) : (
             <div className="hatch grid aspect-[4/3] place-items-center">
@@ -30,7 +30,7 @@ export function ProjectCard({ project, detail, dwg }: { project: Project; detail
               </span>
             </div>
           )}
-          <span className="absolute left-3 top-3 grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-line-strong bg-card font-mono text-sm transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink">
+          <span className="absolute left-3 top-3 z-[1] grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-line-strong bg-card font-mono text-sm transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink">
             {detail}
           </span>
         </div>

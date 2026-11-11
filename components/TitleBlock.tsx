@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { Signature } from "@/components/Signature";
 import type { SheetInfo } from "@/lib/sheets";
 
 type Props = {
@@ -72,8 +73,8 @@ export function TitleBlock({ name, email, linkedin, github, location, sheets, re
         <Cell label="Location" className="lg:border-r">
           {location}
         </Cell>
-        <Cell label="Units" className="hidden border-r lg:block">
-          mm
+        <Cell label="Checked by" className="col-span-2 border-t lg:col-span-1 lg:border-r lg:border-t-0 lg:py-2">
+          <Signature />
         </Cell>
         <Cell label="Sheet" className="hidden lg:block">
           {number > 0 ? `${number} of ${total}` : "—"}

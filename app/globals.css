@@ -585,3 +585,101 @@ summary {
     color-mix(in srgb, var(--ink) 18%, transparent) 9px 10px
   );
 }
+
+/* ---------- Zone tracking on the sheet frame (desktop pointer only) ---------- */
+
+@media (min-width: 1024px) {
+  .zones span {
+    transition:
+      color 120ms ease,
+      background-color 120ms ease;
+  }
+
+  .zones span.is-on {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    font-weight: 600;
+  }
+
+  .zone-readout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--accent);
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .zone-readout {
+    display: none;
+  }
+}
+
+/* ---------- Project cards: crop marks spring out on hover ---------- */
+
+.card {
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.card::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.card::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+@media (hover: hover) {
+  .card:hover::before {
+    opacity: 1;
+    transform: translate(-6px, -6px);
+  }
+
+  .card:hover::after {
+    opacity: 1;
+    transform: translate(6px, 6px);
+  }
+
+  .card:hover .card-img {
+    transform: scale(1.035);
+  }
+}
+
+.card-img {
+  transition: transform 300ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before,
+  .card::after,
+  .card-img,
+  .zones span {
+    transition: none;
+  }
+}
