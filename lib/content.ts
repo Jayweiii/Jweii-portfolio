@@ -145,3 +145,24 @@ export function adjacentProjects(slug: string): { previous?: Project; next?: Pro
     next: projects[index + 1],
   };
 }
+
+export const PROJECT_GROUPS = ["Gaucho Racing", "Personal", "Lab & research"] as const;
+export type ProjectGroup = (typeof PROJECT_GROUPS)[number];
+
+/** Folds the old WordPress categories into three groups that are easy to scan. */
+export function projectGroup(project: Project): ProjectGroup {
+  const slugs = project.categories.map((category) => category.slug);
+  if (slugs.includes("gaucho-racing") || /^fsae\b/i.test(project.title)) return "Gaucho Racing";
+  if (slugs.includes("personal") || slugs.includes("shieldagainstvirus")) return "Personal";
+  return "Lab & research";
+}
+
+/** True when the Markdown has prose, not just images. */
+export function hasWriteUp(project: Project): boolean {
+  const text = project.content
+    .replace(/<figure[\s\S]*?<\/figure>/gi, "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .trim();
+  return text.length > 0;
+}
