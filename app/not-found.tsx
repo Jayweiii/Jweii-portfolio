@@ -1,14 +1,17 @@
 import Link from "next/link";
+import { PageHeader } from "@/components/PageHeader";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-24">
-      <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">404</p>
-      <h1 className="mt-3 font-display text-5xl">Page not found</h1>
-      <p className="mt-4 text-muted">That URL is not on this site.</p>
-      <Link href="/" className="mt-8 inline-flex min-h-11 items-center text-sm underline underline-offset-4">
-        Back home
-      </Link>
-    </div>
+    <PageHeader dwg="Dwg JW-404" kicker="Sheet missing" title="Page not found" lead="There is no sheet at that address. It may have moved when the site was rebuilt.">
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link href="/" className="btn btn-primary">
+          Back to sheet 1
+        </Link>
+        <Link href="/projects/" className="btn btn-secondary">
+          Parts list
+        </Link>
+      </div>
+    </PageHeader>
   );
 }

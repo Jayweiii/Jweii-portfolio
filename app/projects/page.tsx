@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ProjectCard } from "@/components/ProjectCard";
-import { getCategories, getProjects } from "@/lib/content";
+import { PageHeader } from "@/components/PageHeader";
+import { PartsList, type PartRow } from "@/components/PartsList";
+import { PROJECT_GROUPS, getProjects, hasWriteUp, projectGroup } from "@/lib/content";
 import { profile } from "@/lib/profile";
+import { drawingNumbers } from "@/lib/sheets";
+
+const description = "Formula SAE battery work, side builds, a track-day lap app, and shop and lab projects from UCSB.";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Formula SAE battery work, a track-day lap app, shop projects, and research notes.",
+  description,
   alternates: { canonical: "/projects/" },
   openGraph: {
     title: "Projects · Jason Wei",
-    description: "Formula SAE battery work, a track-day lap app, shop projects, and research notes.",
+    description,
     url: "/projects/",
     images: [{ url: profile.portrait.src, alt: profile.portrait.alt }],
   },
@@ -18,34 +21,24 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   const projects = getProjects();
-  const categories = getCategories().filter((category) => category.slug !== "uncategorized");
+  const numbers = drawingNumbers();
+  const rows: PartRow[] = projects.map((project) => ({
+    slug: project.slug,
+    dwg: numbers[project.slug],
+    title: project.title,
+    excerpt: project.excerpt,
+    year: project.date ? project.date.slice(0, 4) : "Now",
+    cover: project.cover,
+    group: projectGroup(project),
+    hasWriteUp: hasWriteUp(project),
+  }));
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-accent">Things I’ve made</p>
-      <h1 className="mt-2 font-display text-5xl tracking-tight sm:text-6xl">Projects</h1>
-      <p className="mt-4 max-w-2xl text-muted">
-        Formula SAE battery work, a track-day lap app, shop projects, and research notes. Older pages keep the original write-ups.
-      </p>
-      {categories.length > 0 ? (
-        <nav aria-label="Project categories" className="mt-8 flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/category/${category.slug}/`}
-              className="border border-line bg-card px-3 py-2 text-sm hover:border-accent hover:text-accent"
-            >
-              {category.name}
-              <span className="text-muted"> {category.count}</span>
-            </Link>
-          ))}
-        </nav>
-      ) : null}
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+    <>
+      <PageHeader dwg="Dwg JW-002" kicker="Parts list" title="Projects" lead={description} />
+      <div className="px-4 py-10 sm:px-8 sm:py-12">
+        <PartsList rows={rows} groups={[...PROJECT_GROUPS]} />
       </div>
-    </div>
+    </>
   );
 }

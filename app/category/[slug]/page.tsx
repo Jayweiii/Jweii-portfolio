@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { PageHeader } from "@/components/PageHeader";
 import { notFound } from "next/navigation";
 import { ProjectCard } from "@/components/ProjectCard";
+import { drawingNumbers } from "@/lib/sheets";
 import { getCategories, projectsInCategory } from "@/lib/content";
 
 export const dynamicParams = false;
@@ -28,21 +29,23 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   if (!category) notFound();
   const projects = projectsInCategory(slug);
 
+  const numbers = drawingNumbers();
+
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-sm text-muted">
-        <Link href="/projects/" className="hover:text-accent">
-          Projects
-        </Link>
-        {" / "}
-        Category
-      </p>
-      <h1 className="mt-3 font-display text-5xl tracking-tight">{category.name}</h1>
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+    <>
+      <PageHeader
+        dwg="Dwg JW-002"
+        kicker={`Category · ${projects.length} ${projects.length === 1 ? "project" : "projects"}`}
+        title={category.name}
+        crumbs={[{ href: "/projects/", label: "Projects" }]}
+      />
+      <ul className="grid gap-6 px-4 py-10 sm:grid-cols-2 sm:px-8 sm:py-12 xl:grid-cols-3">
+        {projects.map((project, i) => (
+          <li key={project.slug}>
+            <ProjectCard project={project} detail={String(i + 1)} dwg={numbers[project.slug]} />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </>
   );
 }

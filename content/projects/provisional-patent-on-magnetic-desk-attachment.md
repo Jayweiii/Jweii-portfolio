@@ -1,7 +1,7 @@
 ---
 title: "Provisional Patent on Magnetic Desk Attachment"
 date: "2019-09-02"
-excerpt: "To be updated"
+excerpt: ""
 source: "https://jweii.com/provisional-patent-on-magnetic-desk-attachment/"
 featured: false
 categories:
@@ -10,5 +10,3 @@ categories:
 tags: []
 aliases: []
 ---
-
-To be updated

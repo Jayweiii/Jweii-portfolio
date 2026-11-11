@@ -1,23 +1,42 @@
-import type { Metadata } from "next";
-import { Fraunces, Outfit } from "next/font/google";
-import { SiteFooter } from "@/components/SiteFooter";
+import type { Metadata, Viewport } from "next";
+import { Barlow_Condensed, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { SheetFrame } from "@/components/SheetFrame";
 import { SiteHeader } from "@/components/SiteHeader";
+import { themeScript } from "@/components/ThemeToggle";
+import { TitleBlock } from "@/components/TitleBlock";
 import { profile } from "@/lib/profile";
+import { sheetIndex } from "@/lib/sheets";
 import "./globals.css";
 
-const outfit = Outfit({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-sans",
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-barlow",
   display: "swap",
 });
 
 const title = "Jason Wei · Battery Engineering at Tesla";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f2eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d2744" },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jweii.com"),
@@ -73,15 +92,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className={`${outfit.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${plexSans.variable} ${plexMono.variable} ${barlow.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-screen antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a className="skip-link" href="#content">
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="content">{children}</main>
-        <SiteFooter />
+        <SheetFrame>
+          <SiteHeader name={profile.name} resume={profile.resume.href} />
+          <main id="content" className="flex-1">
+            {children}
+          </main>
+          <TitleBlock
+            name={profile.name}
+            email={profile.email}
+            linkedin={profile.links.linkedin}
+            github={profile.links.github}
+            location={profile.location}
+            sheets={sheetIndex()}
+            revision={String(new Date().getFullYear())}
+          />
+        </SheetFrame>
       </body>
     </html>
   );

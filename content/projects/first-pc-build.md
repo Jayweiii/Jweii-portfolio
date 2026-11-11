@@ -1,7 +1,7 @@
 ---
 title: "First PC Build"
 date: "2017-11-29"
-excerpt: "To be updated"
+excerpt: ""
 source: "https://jweii.com/first-pc-build/"
 featured: false
 categories:
@@ -10,5 +10,3 @@ categories:
 tags: []
 aliases: []
 ---
-
-To be updated
