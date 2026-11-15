@@ -133,18 +133,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---- Notes ---- */}
-      <section aria-labelledby="notes-heading" className="border-t border-line-strong px-4 py-12 sm:px-8 sm:py-16">
-        <SectionHead n="3" id="notes-heading" label="Unless otherwise specified" title="General notes" />
-        <ol className="mt-8 grid max-w-3xl gap-4 font-mono text-sm leading-relaxed">
-          {[...profile.bio, "For anything else, see the title block below."].map((note, i) => (
-            <li key={note} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-2">
-              <span className="text-accent">{i + 1}.</span>
-              <span className="uppercase tracking-[0.04em]">{note}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
     </>
   );
 }
