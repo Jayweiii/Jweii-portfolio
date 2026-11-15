@@ -1,4 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#1c1917"/>
-  <path fill="#f4f1ea" d="M9.5 7.5h9.2c2.7 0 4.5 1.7 4.5 4.1 0 2.5-1.9 4.2-4.6 4.2H13v8.7H9.5V7.5zm3.5 5.8h5.1c1.1 0 1.8-.6 1.8-1.6s-.7-1.6-1.8-1.6H13v3.2z"/>
+  <style>
+    .paper { fill: #f4f2eb; }
+    .ink { stroke: #16202b; }
+    .red { stroke: #b93a1f; }
+    @media (prefers-color-scheme: dark) {
+      .paper { fill: #0d2744; }
+      .ink { stroke: #e9f1fb; }
+      .red { stroke: #ffc35c; }
+    }
+  </style>
+  <rect class="paper ink" x="1" y="1" width="30" height="30" rx="2" stroke-width="2"/>
+  <g class="ink" fill="none" stroke-width="2.6" stroke-linejoin="miter">
+    <path d="M13.3 7.5V18.8c0 3-1.6 4.7-4 4.7-1.5 0-2.6-.7-3.1-2" stroke-linecap="butt"/>
+    <path d="M15.6 7.5l2 16 2.5-10.5 2.5 10.5 2-16" stroke-linecap="butt"/>
+  </g>
+  <path class="red" d="M4.5 27.5h23" fill="none" stroke-width="1.6" stroke-dasharray="5 1.6 1.6 1.6"/>
 </svg>

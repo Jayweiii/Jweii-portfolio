@@ -8,9 +8,9 @@ The whole site is one engineering drawing set. Every page is a sheet with a bord
 
 - **Vellum / Blueprint**: light mode is drafting vellum with redline accents; dark mode is a blueprint. The toggle sits in the header and follows the system setting until someone picks one. All colours are tokens at the top of `app/globals.css`.
 - **Sheet numbers**: Home is `JW-001`, Projects `JW-002`, About `JW-003`. Each project gets `JW-1xx`, counted from the oldest, so numbers don't move when you add a project (`lib/sheets.ts`).
-- **Home**: hero with a self-drawing 2170 cell (`components/CellDrawing.tsx`), selected work as detail views A–F (the six lowest `featureRank`s), experience as a revision table, and the bio as general notes.
+- **Home**: hero with a self-drawing 2170 cell (`components/CellDrawing.tsx`), selected work as detail views A–F (the six lowest `featureRank`s), and experience as a revision table.
 - **Projects**: a parts list with an All / Gaucho Racing / Personal / Lab & research filter. Groups come from `categories` (`projectGroup` in `lib/content.ts`).
-- **Interactive bits** (kept small on purpose): the hero cell has clickable callouts with a one-line note each and a "Cut section A–A" toggle. On desktop the sheet's zone markers light up under the pointer and the corner shows the grid reference. Project cards' crop marks spring out on hover. The title block has a "Checked by" box visitors can sign (saved only in their browser).
+- **Interactive bits** (kept small on purpose): the hero cell has clickable callouts with a one-line note each and a "Cut section A–A" toggle. On desktop the sheet's zone markers light up under the pointer and the corner shows the grid reference. Project cards' crop marks spring out on hover. The title block has a "Checked by" box visitors can sign by drawing with a mouse, pen or finger (saved only in their browser).
 - **Write-ups**: every figure in a project's Markdown is framed and numbered as View 1, View 2, …. A project with only photos gets a "write-up not drafted yet" note.
 
 ## Edit the site
@@ -104,5 +104,5 @@ The WordPress REST API (`/wp-json/wp/v2/pages`, `/posts`, `/media`), the RSS fee
 - If a full write-up exists only as a draft, a private post, or a row in the broken database, it was not reachable. In WordPress admin, use **Tools → Export** and copy anything missing into a new file under `content/projects/`.
 - The GR24 battery pack and module posts embed diagrams from Google Slides. Those image URLs returned 403, so the diagrams are not in the repo. The slide text is still in the Markdown. If you still have the deck, export the slides into `public/media/` and replace the missing figures.
 - Photos that sit in the Media Library but are not embedded in a public page were not downloaded. If something is missing, copy it out of `wp-content/uploads` on the droplet.
-- The public contact email on the old site is `jwei@ucsb.edu` (Cloudflare-obfuscated in the footer). It is on the new site because that is what the current site publishes. Change `email` in `content/profile.json` if that mailbox is dead. The phone number was not copied over.
+- The contact email is set in `email` in `content/profile.json`. The old site's phone number was not copied over.
 - The résumé PDF is the November 19, 2024 file. It does not include the full-time Tesla role (July 2025 – present). Export a current résumé when you have one.
