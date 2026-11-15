@@ -1,0 +1,163 @@
+% ---------------------------------------------------------------------------
+%  Jason Wei — résumé
+%
+%  Build:  npm run resume        (needs pdflatex; see resume/README.md)
+%  Output: public/resume/Jason-Wei-Resume.pdf, which the site links to.
+%
+%  Edit the content below. Each job is one \job{...} block followed by bullets.
+% ---------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper]{article}
+
+% ---- Page ------------------------------------------------------------------
+\usepackage[margin=0.55in,top=0.45in,bottom=0.45in]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---- Type: IBM Plex, the same family as jweii.com ---------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{plex-sans}
+\usepackage{plex-mono}
+\usepackage[final]{microtype}
+
+% ---- Colour: the site's redline accent ---------------------------------------
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{16202B}
+\definecolor{muted}{HTML}{56606C}
+\definecolor{redline}{HTML}{B93A1F}
+\color{ink}
+
+\hyphenpenalty=6000
+\exhyphenpenalty=6000
+
+% ---- Lists, links, layout ---------------------------------------------------
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.1em,label={\color{redline}\scriptsize$\blacksquare$},
+  itemsep=0.6pt,parsep=0pt,topsep=2pt,after=\vspace{4pt}}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\hypersetup{pdftitle={Jason Wei — Résumé},pdfauthor={Jason Wei}}
+
+% ---- Building blocks ---------------------------------------------------------
+
+% Section heading: small mono caps label with a rule, like a drawing callout.
+\renewcommand{\section}[1]{%
+  \vspace{5pt}%
+  {\color{redline}\ttfamily\footnotesize\bfseries\MakeUppercase{#1}}%
+  \hspace{6pt}{\color{muted}\leaders\hrule height 0.4pt\hfill}\par
+  \vspace{4pt}}
+
+% \job{Title}{Organisation}{Location}{Dates}
+\newcommand{\job}[4]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1}\ \ {\color{muted}·}\ \ #2 &
+    {\small\color{muted}#3}\quad{\ttfamily\small\leavevmode\color{muted}#4} \\
+  \end{tabularx}\par\vspace{1pt}}
+
+% \skill{Group}{Items}
+\newcommand{\skill}[2]{%
+  \begin{tabularx}{\linewidth}{@{}p{1.75in}X@{}}
+    \textbf{#1} & #2 \\
+  \end{tabularx}\par\vspace{1.5pt}}
+
+\begin{document}
+
+% ---- Header -------------------------------------------------------------------
+{\fontsize{24}{26}\selectfont\bfseries JASON C.\ WEI}\par
+\vspace{3pt}
+{\large Mechanical Design Engineer\ \ {\color{muted}·}\ \ Battery Engineering, Tesla}\par
+\vspace{4pt}
+{\ttfamily\small\color{muted}%
+  \href{mailto:jasoncw008@gmail.com}{jasoncw008@gmail.com}\quad|\quad
+  \href{https://jweii.com}{jweii.com}\quad|\quad
+  \href{https://linkedin.com/in/jwei}{linkedin.com/in/jwei}\quad|\quad
+  \href{https://github.com/Jayweiii}{github.com/Jayweiii}\quad|\quad
+  Palo Alto, CA%
+  % To add a phone number: \quad|\quad (555) 555-5555
+}\par
+\vspace{2pt}
+{\color{ink}\rule{\linewidth}{1.2pt}}
+
+% ---- Experience ---------------------------------------------------------------
+\section{Experience}
+
+\job{Mechanical Design Engineer}{Tesla, Battery Engineering}{Palo Alto, CA}{Jul 2025 \textendash\ Present}
+\vspace{4pt}
+% Add bullets for the current role here:
+% \begin{itemize}
+%   \item ...
+% \end{itemize}
+
+\job{Mechanical Design Engineering Intern}{Tesla, High Voltage Distribution}{Palo Alto, CA}{Jun 2024 \textendash\ Sep 2024}
+\begin{itemize}
+  \item Owned the design and DFM of two new die-cast high-voltage connector headers.
+  \item Designed a new face seal profile using Ansys hyperelastic simulation, raising the contact-pressure to
+        reaction-force ratio 52\% over existing designs.
+  \item Optimized critical-fastening snap joints for low insertion and high retention force by driving CAD
+        dimensions as Ansys parameters across the design space.
+  \item Mapped face seal limits under worst-case top cover deflection across thicknesses, materials, and stamping
+        geometries, cutting header per-unit cost 10\% by removing unneeded fasteners.
+  \item Routed harnesses and busbars in CAD to reduce the number of bends and installation-order constraints.
+\end{itemize}
+
+\job{Electrical Chief Engineer \& Powertrain Lead}{Gaucho Racing, UCSB FSAE}{Santa Barbara, CA}{Nov 2021 \textendash\ Jun 2025}
+\begin{itemize}
+  \item Owned design and manufacturing of 8 wire-bonded, potted 2170 modules: a 538\,V, 6.2\,kWh, 81.9\,kW pack.
+  \item Designed HV distribution and ancillaries: main contactors, mid-pack fuse, HV disconnect, maintenance plugs.
+  \item Designed battery water-cooling cold plates, simulated in SolidWorks Flow and validated on a pressure-drop test rig.
+  \item Built MATLAB thermal models to size cell-level fusible links and predict pack-level thermal limits.
+\end{itemize}
+
+\job{Mechanical Engineering Intern}{Seek Thermal}{Goleta, CA}{Jun 2023 \textendash\ Oct 2023}
+\begin{itemize}
+  \item Designed thermal camera processor heat sinking; simulated in SolidWorks, validated in an environmental chamber.
+  \item Designed and manufactured 3 blackbodies operating from \textminus40\,\textdegree C to 60\,\textdegree C for infrared sensor calibration.
+  \item Created 30+ Agile ECOs and GD\&T drawings for new products and product revisions.
+  \item Machined go/no-go gauges for shrinkage defects in molded PPSU; built an Excel tolerance stack-up tool.
+\end{itemize}
+
+\job{Workshop Wizard \& 3D Printer Tool Lead}{UCSB CNSI Workshops}{Santa Barbara, CA}{Jun 2022 \textendash\ Present}
+\begin{itemize}
+  \item Instructed 200+ researchers and grad students on workshop and microfluidic equipment.
+  \item Fabricated and delivered 100+ CNC-milled, 3D-printed, and laser-cut custom user orders.
+  \item Maintained and wrote SOPs for 3D printers and laser cutters (Formlabs, Ultimaker, Stratasys, Rayjet).
+\end{itemize}
+
+\job{Undergraduate Researcher}{UCSB Thermofluid Energy Research Lab}{Santa Barbara, CA}{Apr 2023 \textendash\ Sep 2023}
+\begin{itemize}
+  \item Machined and printed a flow boiling fixture for a NASA ISS experiment on surface structures and instability.
+  \item Researched vapor chambers as EV battery heat spreaders; presented at the UCSB CSEP Colloquium (Aug 2023).
+  \item Characterized heat pipe thermal gradients and conductivities on a custom-built test bench.
+\end{itemize}
+
+% ---- Education ----------------------------------------------------------------
+\section{Education}
+
+\job{B.S. Mechanical Engineering}{University of California, Santa Barbara}{Santa Barbara, CA}{Sep 2021 \textendash\ Jun 2025}
+\begin{itemize}
+  \item Dean's List; Edison Research Scholar; Wind Ensemble clarinetist. Coursework: Heat Transfer, Mechatronics,
+        Materials, Thermodynamics, Circuits, Machine Learning.
+\end{itemize}
+
+% ---- Skills -------------------------------------------------------------------
+\section{Skills}
+
+\skill{EV Powertrain Design}{Wire-bonded 538\,V 2170 battery modules, HV connectors, ancillaries}
+\skill{Design for Manufacturing}{GD\&T, worst-case \& statistical tolerance analysis, die casting}
+\skill{Thermal Systems}{Lap-sim-coupled battery thermal modeling (MATLAB), fusible link testing, cold plates}
+\skill{CAD, Simulation \& CAM}{CATIA 3DEXPERIENCE, Ansys Mechanical, SolidWorks, HSMWorks}
+\skill{Fabrication}{Haas CNC mill, Wazer waterjet, Trotec laser; Stratasys, Formlabs, Ultimaker, Prusa printers}
+\skill{Programming}{MATLAB, Python (scikit-learn, TensorFlow), Arduino}
+
+% ---- Honors -------------------------------------------------------------------
+\section{Honors \& Awards}
+
+Dean's List, 3.75+ GPA {\color{muted}(2023)}\ \ {\color{redline}·}\ \
+MESA Qualcomm Idea Accelerator, Second Place {\color{muted}(2023)}\ \ {\color{redline}·}\ \
+Gold Presidential Volunteer Award, 500+ hours {\color{muted}(2021)}\ \ {\color{redline}·}\ \
+VEX Robotics California State Excellence Award {\color{muted}(2018)}\par
+
+\end{document}

@@ -5,3 +5,10 @@ out
 *.log
 *.tsbuildinfo
 content/migration-failures.txt
+resume/build
+resume/*.aux
+resume/*.log
+resume/*.out
+resume/*.fls
+resume/*.fdb_latexmk
+resume/resume.pdf
