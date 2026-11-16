@@ -125,7 +125,9 @@
       "items": [
         "GD&T",
         "Worst-Case & Statistical Tolerance Analysis",
-        "Die Casting"
+        "Die Casting",
+        "Injection Molding",
+        "Automated Assembly"
       ]
     },
     {
@@ -146,11 +148,12 @@
       ]
     },
     {
-      "group": "EV Powertrain Design",
+      "group": "HV Battery Design",
       "items": [
-        "Custom Wire-bonded 538V 2170 Battery Modules",
-        "HV Connectors",
-        "Ancillaries"
+        "HV contacts",
+        "Busbars",
+        "Insulation",
+        "Seals"
       ]
     },
     {
