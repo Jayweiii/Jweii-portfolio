@@ -91,19 +91,6 @@
         "Fabricated and delivered over 100 CNC milled, 3D printed, and laser cut custom user orders.",
         "Managed, repaired, and created SOPs for 3D printers and laser cutters (Formlabs Form 3, Ultimaker S5, Stratasys F270, Stratasys Objet 30 Pro, and Rayjet 300)."
       ]
-    },
-    {
-      "org": "UCSB Thermofluid Energy Research Laboratory",
-      "role": "Undergraduate Researcher",
-      "location": "Santa Barbara, CA",
-      "start": "Apr 2023",
-      "end": "Sep 2023",
-      "bullets": [
-        "CNC milled and 3D printed a fluid boiling fixture for a NASA ISS experiment, analyzing the role of surface structures on flow boiling instabilities.",
-        "Researched and presented the use of vapor chambers, which utilize liquid-gas phase change, as a heat spreader for EV battery thermal management.",
-        "Characterizing heat pipe thermal gradients and thermal conductivities using custom built test bench.",
-        "Presented research on a novel EV battery cooling method at the UCSB CSEP Colloquium Poster Session in August 2023."
-      ]
     }
   ],
   "education": [
@@ -113,7 +100,7 @@
       "location": "Santa Barbara, CA",
       "dates": "Sep 2021 – Jun 2025",
       "details": [
-        "FSAE Electrical Chief Engineer & Powertrain Lead, Dean's List, TFEL Undergraduate Researcher, CNSI Workshop Wizard, Edison Research Scholar, Qualcomm MESA Idea Accelerator, Wind Ensemble Clarinetist, LoL Esports Player.",
+        "FSAE Electrical Chief Engineer & Powertrain Lead, Dean's List, CNSI Workshop Wizard, Edison Research Scholar, Qualcomm MESA Idea Accelerator, Wind Ensemble Clarinetist, LoL Esports Player.",
         "Relevant coursework: Heat Transfer, Mechatronics, Materials, Thermodynamics, Circuits, Machine Learning, Statics, and Dynamics."
       ]
     },
