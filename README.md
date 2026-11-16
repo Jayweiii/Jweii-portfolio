@@ -8,9 +8,9 @@ The whole site is one engineering drawing set. Every page is a sheet with a bord
 
 - **Vellum / Blueprint**: light mode is drafting vellum with redline accents; dark mode is a blueprint. The toggle sits in the header and follows the system setting until someone picks one. All colours are tokens at the top of `app/globals.css`.
 - **Sheet numbers**: Home is `JW-001`, Projects `JW-002`, About `JW-003`. Each project gets `JW-1xx`, counted from the oldest, so numbers don't move when you add a project (`lib/sheets.ts`).
-- **Home**: hero with a self-drawing 2170 cell (`components/CellDrawing.tsx`), selected work as detail views A–F (the six lowest `featureRank`s), and experience as a revision table.
+- **Home**: hero with a self-drawing plan view of an EV powertrain — battery pack, HV distribution, front and rear drive units (`components/PowertrainDrawing.tsx`), selected work as detail views A–F (the six lowest `featureRank`s), and experience as a revision table.
 - **Projects**: a parts list with an All / Gaucho Racing / Personal / Lab & research filter. Groups come from `categories` (`projectGroup` in `lib/content.ts`).
-- **Interactive bits** (kept small on purpose): the hero cell has clickable callouts with a one-line note each and a "Cut section A–A" toggle. On desktop the sheet's zone markers light up under the pointer and the corner shows the grid reference. Project cards' crop marks spring out on hover. The title block has a "Checked by" box visitors can sign by drawing with a mouse, pen or finger (saved only in their browser).
+- **Interactive bits** (kept small on purpose): the hero powertrain has clickable callouts with a short note each and an "X-ray the car" toggle that shows the modules and drive unit internals. The browser tab icon is the headshot (`app/icon.jpg`). On desktop the sheet's zone markers light up under the pointer and the corner shows the grid reference. Project cards' crop marks spring out on hover. The title block has a "Checked by" box visitors can sign by drawing with a mouse, pen or finger (saved only in their browser).
 - **Write-ups**: every figure in a project's Markdown is framed and numbered as View 1, View 2, …. A project with only photos gets a "write-up not drafted yet" note.
 
 ## Edit the site

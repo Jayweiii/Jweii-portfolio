@@ -18,9 +18,9 @@ export function SiteHeader({ name, resume }: { name: string; resume: string }) {
         <Link href="/" className="group flex min-h-14 items-center gap-3 px-4 sm:px-5" aria-label={`${name}, home`}>
           <span
             aria-hidden="true"
-            className="block h-10 w-10 flex-none overflow-hidden border-[1.5px] border-line-strong bg-paper-2 p-0.5 transition-colors group-hover:border-accent"
+            className="grid h-9 w-9 place-items-center border-[1.5px] border-line-strong font-display text-lg font-semibold leading-none transition-colors group-hover:border-accent group-hover:text-accent"
           >
-            <img src="/images/jason-wei-logo.jpg" alt="" width={128} height={128} className="h-full w-full object-cover" />
+            JW
           </span>
           <span className="font-display text-xl font-semibold uppercase tracking-[0.08em]">{name}</span>
         </Link>
