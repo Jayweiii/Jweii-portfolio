@@ -121,6 +121,16 @@
   ],
   "skills": [
     {
+      "group": "HV Battery Design",
+      "items": [
+        "Electrical contacts",
+        "Blind mates",
+        "Busbars",
+        "Insulation",
+        "Seals"
+      ]
+    },
+    {
       "group": "Design for High Volume Manufacturing",
       "items": [
         "GD&T",
@@ -140,21 +150,20 @@
       ]
     },
     {
+      "group": "Programming (vibe coding)",
+      "items": [
+        "Claude Code",
+        "Matlab",
+        "Python (ScikitLearn & Tensorflow)",
+        "Arduino"
+      ]
+    },
+    {
       "group": "Thermal Systems",
       "items": [
         "Matlab Lap Sim-coupled Battery Thermal Modeling",
         "Fusible Link Testing",
         "Battery Cold Plate"
-      ]
-    },
-    {
-      "group": "HV Battery Design",
-      "items": [
-        "Electrical contacts",
-        "Blind mates",
-        "Busbars",
-        "Insulation",
-        "Seals"
       ]
     },
     {
@@ -173,15 +182,6 @@
         "MiiCraft 50",
         "Ultimaker S5",
         "Prusa i3 Mk.3"
-      ]
-    },
-    {
-      "group": "Programming (vibe coding)",
-      "items": [
-        "Claude Code",
-        "Matlab",
-        "Python (ScikitLearn & Tensorflow)",
-        "Arduino"
       ]
     }
   ],
