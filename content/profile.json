@@ -150,7 +150,7 @@
     {
       "group": "HV Battery Design",
       "items": [
-        "HV contacts",
+        "Electrical contacts",
         "Busbars",
         "Insulation",
         "Seals"
