@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Important note:
+% This template must be compiled with XeLaTeX, the below lines will ensure this
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt, letterpaper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
+ 
+\fontdir[fonts/] % Specify the location of the included fonts
+
+% Color for highlights
+%\colorlet{awesome}{awesome-skyblue} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
+\definecolor{awesome}{HTML}{0BA89A} % UCSB sea green
+
+% Colors for text - uncomment and modify
+%\definecolor{darktext}{HTML}{000000}
+\definecolor{text}{HTML}{000000}
+\definecolor{graytext}{HTML}{000000}
+%\definecolor{lighttext}{HTML}{000000}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+
+%----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%----------------------------------------------------------------------------------------
+
+\name{Jason C.}{Wei}
+\address{Pleasanton, California, USA}
+\mobile{(925) 352-7600}
+\github{Jayweiii}
+\homepage{jweii.com}
+\email{jwei@ucsb.edu}
+\linkedin{jwei}
+%\skype{skypeid}
+%\stackoverflow{SOid}{SOname}
+%\twitter{@twit}
+%\linkedin{linkedin name}
+%\reddit{reddit account}
+%\xing{xing name}
+%\extrainfo{test} % Other text you want to include on this line
+
+\position{Mechanical Engineer{\enskip\cdotp\enskip}UCSB} % Your expertise/fields
+\quote{Third-year MechE @ UCSB with extensive hands-on experience in EV powertrains, \\ designing for manufacturing, CNC milling, 3D printing, and two-phase thermofluidics.} % A quote or statement
+
+%----------------------------------------------------------------------------------------
+%	RECIPIENT/POSITION/LETTER INFORMATION
+%	All of the below lines must be filled out
+%----------------------------------------------------------------------------------------
+
+\recipient{Hiring Manager}{Microsoft\\Washington, CA} % The company being applied to
+
+\letterdate{\today} % The date on the letter, default is the date of compilation
+
+\lettertitle{Systems Mechanical Engineering Intern} % The title of the letter
+
+\letteropening{Dear Lucid Motors,} % How the letter is opened
+
+\letterclosing{Kind regards,} % How the letter is closed
+
+% \letterenclosure[Attached]{Resume} % Any enclosures with the letter
+
+\makecvfooter{\today}{Jason C. Wei~~~·~~~Cover Letter}{} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+  
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvheader % Print the header
+
+\makelettertitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+\begin{cvletter}
+
+%------------------------------------------------
+
+As a third-year Mechanical Engineering student at the University of California - Santa Barbara with extensive hands-on experience in Formula SAE EV powertrain design, electrochemical cell modelling, SolidWorks, Ansys, Designing-for-Manufacturing, and MATLAB/Simulink thermo-mechanical-electrical systems modelling, I am confident that my multidisciplinary skill-set and experiences make me an excellent candidate for this internship. Peter's Tech Talks about some of the innovations behind the Lucid Air, such as the mismatched fusible links and liquid cooling cold plate, has inspired me to pursue thermodynamics as my specialization in mechanical engineering. I love using MATLAB Simulink to simulate systems to define design requirements such as battery capacity or cooling strategy, as it deepens my understanding of how components interact with each other and identify bottlenecks to innovate on. Additionally, as a leader on UCSB's FSAE Electric team, I resonate with Lucid's culture of collaboration between all parts of the company in order to create an extremely well integrated vehicle.
+
+%------------------------------------------------
+
+\end{cvletter}
+
+%----------------------------------------------------------------------------------------
+
+\makeletterclosing % Print the signature and enclosures
+
+\end{document}

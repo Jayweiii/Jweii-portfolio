@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Important note:
+% This template must be compiled with XeLaTeX, the below lines will ensure this
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt, letterpaper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
+ 
+\fontdir[fonts/] % Specify the location of the included fonts
+
+% Color for highlights
+%\colorlet{awesome}{awesome-skyblue} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
+\definecolor{awesome}{HTML}{0BA89A} % UCSB sea green
+
+% Colors for text - uncomment and modify
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+
+%----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%----------------------------------------------------------------------------------------
+
+\name{Jason C.}{Wei}
+\address{2320 Willet Way, Pleasanton, California, 94566, USA}
+\mobile{(925) 352-7600}
+\github{github.com/Jayweiii}
+\homepage{jweii.com}
+\email{jwei@ucsb.edu}
+\linkedin{linkedin.com/in/jwei}
+%\skype{skypeid}
+%\stackoverflow{SOid}{SOname}
+%\twitter{@twit}
+%\linkedin{linkedin name}
+%\reddit{reddit account}
+%\xing{xing name}
+%\extrainfo{test} % Other text you want to include on this line
+
+\position{Mechanical Engineer{\enskip\cdotp\enskip}UCSB} % Your expertise/fields
+\quote{``Creativity is all about connecting dots."} % A quote or statement
+
+%----------------------------------------------------------------------------------------
+%	RECIPIENT/POSITION/LETTER INFORMATION
+%	All of the below lines must be filled out
+%----------------------------------------------------------------------------------------
+
+\recipient{Internship Recruitment Team}{Toyon Research\\Goleta, CA} % The company being applied to
+
+\letterdate{\today} % The date on the letter, default is the date of compilation
+
+\lettertitle{Engineering intern} % The title of the letter
+
+\letteropening{Dear Toyon Research,} % How the letter is opened
+
+\letterclosing{Kind regards,} % How the letter is closed
+
+% \letterenclosure[Attached]{Resume} % Any enclosures with the letter
+
+\makecvfooter{\today}{Jason C. Wei~~~·~~~Cover Letter}{} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+  
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvheader % Print the header
+
+\makelettertitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+\begin{cvletter}
+
+%------------------------------------------------
+As the technical director and powertrain lead for Gaucho Racing, the FSAE Electric team at UC Santa Barbara, I am delighted to submit this engineering intern application. 
+
+I have been working closely with Eric Sandoz, Toyon Research's Deputy Director of the Antenna and RF Systems team, on our tractive system circuitry for the past few months. This includes an overall system diagram and a precharge circuit that activates during the start-up sequence of our vehicle to limit inrush current over the motor controller. Through our bi-weekly meetings, Eric has been a massive help, teaching us schematic design practices and how to communicate design decisions clearly.
+
+In addition to what I have learned about power electronics, I have extensive experience with 3D printing, CNC machining, and thermofluidics. My role as Workshop Wizard at the California NanoSystems Institute allows me to work directly with many research groups on campus and to explore my curiosity in many engineering disciplines. 
+
+I look forward to discussing this internship opportunity and my qualifications with you in further detail. Interning at Toyon Research would be an exciting opportunity for me to experience the industry leading technology, collaboration, and inter-team integration in a professional environment.
+
+Thank you so much for your time and consideration.
+
+%------------------------------------------------
+
+
+\end{cvletter}
+
+%----------------------------------------------------------------------------------------
+
+\makeletterclosing % Print the signature and enclosures
+
+\end{document}
