@@ -176,8 +176,9 @@
       ]
     },
     {
-      "group": "Programming",
+      "group": "Programming (vibe coding)",
       "items": [
+        "Claude Code",
         "Matlab",
         "Python (ScikitLearn & Tensorflow)",
         "Arduino"
