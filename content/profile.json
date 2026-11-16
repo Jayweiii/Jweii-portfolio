@@ -151,6 +151,7 @@
       "group": "HV Battery Design",
       "items": [
         "Electrical contacts",
+        "Blind mates",
         "Busbars",
         "Insulation",
         "Seals"
