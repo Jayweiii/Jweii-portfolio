@@ -692,6 +692,6 @@ summary {
 
 @media (prefers-reduced-motion: reduce) {
   .zoom-stage {
-    transition: none;
+    transition: opacity 150ms ease !important;
   }
 }
