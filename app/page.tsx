@@ -40,8 +40,7 @@ export default function HomePage() {
               Wei
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed">
-              I design battery hardware at {profile.company}. Before that I built electric race car packs with Gaucho
-              Racing at UCSB.
+              I design battery hardware at {profile.company}.
             </p>
 
             <dl className="mt-8 max-w-lg border border-line-strong bg-card text-sm">
