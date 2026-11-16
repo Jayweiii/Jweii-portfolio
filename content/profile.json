@@ -62,7 +62,7 @@
       "start": "Nov 2021",
       "end": "Jun 2025",
       "bullets": [
-        "Owned design and manufacturing of 8 wire-bonded and potted 2170 battery modules forming a 538 V, 6.2 kWh, 81.9 kW pack.",
+        "Owned design and manufacturing of 8 wire-bonded and potted 2170 battery modules forming a 538 V, 6.2 kWh pack.",
         "Designed external HV distribution and internal ancillaries (main contactors, mid-pack main fuse, HV disconnect, battery maintenance plugs).",
         "Designed battery water-cooling cold plates, flow-simulated in SolidWorks Flow and validated the pressure-drop curve on a test rig.",
         "Built MATLAB thermal models for cell-level fusible link sizing and pack-level thermal limits."
