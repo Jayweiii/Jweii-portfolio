@@ -29,6 +29,11 @@
       "source": "/fsae-battery-pack-design/",
       "destination": "/fsae-gr23-battery-segment-design/",
       "permanent": true
+    },
+    {
+      "source": "/resume/Jason-Wei-Resume-2024-11-19.pdf",
+      "destination": "/resume/Jason-Wei-Resume.pdf",
+      "permanent": false
     }
   ]
 }

@@ -24,7 +24,16 @@ Open [`content/profile.json`](content/profile.json).
 - `portrait` is the headshot used in the hero, About page, and social preview. The file lives at `public/images/jason-wei.jpg`.
 - `experience`, `education`, `skills`, and `honors` are lists. Add an object, or add a string to a `bullets` or `items` array. Leave `end` as `""` when you only know the start date. Leave `bullets` as `[]` when you don’t have them yet — the page hides an empty list.
 - `email`, `links.linkedin`, and `links.github` are the only contact methods. The old footer phone number is intentionally not on the site.
-- `resume` points at the PDF in `public/resume/`. The file in the repo is the November 19, 2024 résumé from the old site. Drop a newer PDF in `public/resume/` and update `href` and `date`.
+- `resume` points at the PDF in `public/resume/`, which is built from LaTeX (see **Résumé** below). Update `date` when you change it.
+
+### Résumé
+
+The résumé is one LaTeX file, [`resume/resume.tex`](resume/resume.tex), with no Overleaf needed. It compiles to `public/resume/Jason-Wei-Resume.pdf`, which the header and About page link to. The old 2024 PDF URL redirects there.
+
+- **Easiest:** edit `resume/resume.tex` on GitHub (pencil icon) and commit. The **Build résumé PDF** workflow compiles it and commits the new PDF to the same branch within a couple of minutes.
+- **On your computer:** install a TeX distribution (MacTeX, or `brew install --cask basictex` then `sudo tlmgr install plex fontaxes mweights enumitem microtype`), then run `npm run resume`.
+- Each job is a `\job{Title}{Organisation}{Location}{Dates}` line followed by an `itemize` list. Keep it to one page: check the PDF after big additions.
+- There's a commented line in the header for a phone number. The PDF is public on the site, so it's off by default.
 
 ### Projects
 
@@ -105,4 +114,3 @@ The WordPress REST API (`/wp-json/wp/v2/pages`, `/posts`, `/media`), the RSS fee
 - The GR24 battery pack and module posts embed diagrams from Google Slides. Those image URLs returned 403, so the diagrams are not in the repo. The slide text is still in the Markdown. If you still have the deck, export the slides into `public/media/` and replace the missing figures.
 - Photos that sit in the Media Library but are not embedded in a public page were not downloaded. If something is missing, copy it out of `wp-content/uploads` on the droplet.
 - The contact email is set in `email` in `content/profile.json`. The old site's phone number was not copied over.
-- The résumé PDF is the November 19, 2024 file. It does not include the full-time Tesla role (July 2025 – present). Export a current résumé when you have one.

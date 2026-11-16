@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "resume": "mkdir -p resume/build && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=resume/build resume/resume.tex >/dev/null && cp resume/build/resume.pdf public/resume/Jason-Wei-Resume.pdf && echo \"Wrote public/resume/Jason-Wei-Resume.pdf\""
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
